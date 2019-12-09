@@ -1,0 +1,60 @@
+#wrapper {
+    padding: 0 40px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 480px) {
+    /* 480px以下用（スマートフォン用）の記述 */
+    #wrapper {
+        padding: 40px;
+        margin: 0 auto;
+        height: 100%;
+    }
+}
+
+.btn {
+    width: 100%;
+}
+
+#signup {
+    text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #eee;
+}
+
+#signup a {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#signup p {
+    margin-top: 10px;
+}
+
+#login {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #eee;
+    padding-bottom: 30px;
+}
+
+#login button {
+    margin-bottom: 10px;
+}
+
+#login input {
+    margin-bottom: 10px;
+}
+
+#login-btn {
+    margin-bottom: 30px;
+}
+
+#login a {
+    text-decoration: none;
+}
+
+.fa {
+    float: left;
+}
