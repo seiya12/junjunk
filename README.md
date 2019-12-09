@@ -14,7 +14,8 @@
 
 **バックエンド**
 
-- Laravel
+- PHP
+    - Laravel
 
 ## インストール
 
