@@ -6,12 +6,14 @@
 </head>
 
 <body>
-    @yield('header')
-    @yield('content')
-    @yield('footer')
+    <div id="wrapper">
+        @yield('header')
+        @yield('content')
+        @yield('footer')
 
-    <!-- JavaScript -->
-    <script src="{{ asset('js/app.js') }}"></script>
+        <!-- JavaScript -->
+        <script src="{{ asset('js/app.js') }}"></script>
+    </div>
 </body>
 
 </html>

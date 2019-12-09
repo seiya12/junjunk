@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'TopController@index');
+Route::get('login', 'AuthController@login');
+Route::get('signup', 'AuthController@signup');
