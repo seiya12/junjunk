@@ -21,9 +21,15 @@ Route::get('signup', function () {
     return view('signup');
 })->name('signup');
 
+// TODO: 商品idの追加
 Route::get('product', function () {
     return view('product');
-})->name('login');
+})->name('product');
+
+// TODO: 商品idの追加
+Route::get('buy', function () {
+    return view('buy');
+})->name('buy');
 
 // 認証ルート
 Route::post('login', 'AuthController@login')->name('auth.login');
