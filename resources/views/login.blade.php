@@ -15,13 +15,13 @@
 <!-- content -->
 @section('content')
 <div id="signup">
-    <a href="#">アカウントをお持ちでない方はこちら</a>
-    <p id="signup-btn"><button type="button" class="btn btn-primary">新規会員登録</button></p>
+    <a href="signup">アカウントをお持ちでない方はこちら</a>
+    <a href="signup" id="signup-btn"><button type="button" class="btn btn-primary">新規会員登録</button></a>
 </div>
 
-<form id="login" action="" method="post">
-    <p><button type="button" class="btn btn-danger"><span class="fa fa-google"></span>Googleでログイン</button></p>
-    <p><button type="button" class="btn btn-dark"><span class="fa fa-github"></span>GitHubでログイン</button></p>
+<form id="login" action="{{ url('login')}}" method="post">
+    <a href="login/google"><button type="button" class="btn btn-danger"><span class="fa fa-google"></span>Googleでログイン</button></a>
+    <a href="login/github"><button type="button" class="btn btn-dark"><span class="fa fa-github"></span>GitHubでログイン</button></a>
     <div class="form-group">
         <input type="text" id="mail" class="form-control" placeholder="メールアドレス">
     </div>
