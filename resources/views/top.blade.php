@@ -12,6 +12,11 @@
 
 <!-- content -->
 @section('content')
+@auth
+
+<p>ログインユーザーに表示する。</p>
+
+@endauth
 <div id="slide" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">

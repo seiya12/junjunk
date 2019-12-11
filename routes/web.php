@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', 'TopController@index');
-Route::get('login', 'AuthController@login');
-Route::get('signup', 'AuthController@signup');
+Route::get('/', 'TopController@index')->name('top');
+
+Route::get('login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('signup', function () {
+    return view('signup');
+})->name('signup');
+
+Route::get('product', function () {
+    return view('product');
+})->name('login');
+
+// 認証ルート
+Route::post('login', 'AuthController@login')->name('auth.login');
+Route::post('signup', 'AuthController@signup')->name('auth.signup');
+
+// OAuthルート
+Route::get('login/google', 'AuthController@redirectToGoogle');
+Route::get('login/google/callback', 'AuthController@handleGoogleCallback');
