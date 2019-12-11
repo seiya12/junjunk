@@ -20,11 +20,11 @@
 
 <article>
     <section>
-        <h2>{{ $productTitle }}</h2>
+        <h2>{{ $product['title'] }}</h2>
         <div id="products" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#products" data-slide-to="0" class="active"></li>
-                @foreach($products as $key => $product)
+                @foreach($product['url'] as $key => $url)
                 <li data-target="#products" data-slide-to="{{ $key + 1 }}"></li>
                 @endforeach
             </ol>
@@ -32,9 +32,9 @@
                 <div class="carousel-item active">
                     <img src="slide1.png" alt="スライド">
                 </div>
-                @foreach($products as $product)
+                @foreach($product['url'] as $url)
                 <div class="carousel-item">
-                    <img src="{{ product['url'] }}" alt="スライド">
+                    <img src="{{ $url }}" alt="スライド">
                 </div>
                 @endforeach
                 <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
@@ -47,32 +47,32 @@
                 </a>
             </div>
         </div>
-        <p>￥900 (税込) 送料込み</p>
+        <p>{{ product['price'] }} (税込)</p>
     </section>
     <section>
         <table class="table">
             <tr>
                 <th>出品者</th>
-                <td></td>
+                <td>{{ $product['user'] }}</td>
             </tr>
             <tr>
                 <th>カテゴリー</th>
-                <td></td>
+                <td>{{ $product['category'] }}</td>
             </tr>
             <tr>
                 <th>配送元地域</th>
-                <td></td>
+                <td>{{ $product['origin'] }}</td>
             </tr>
             <tr>
                 <th>発送日の目安</th>
-                <td></td>
+                <td>{{ $product['indication'] }}</td>
             </tr>
         </table>
-        <p>¥900 (税込み) 送料込み</p>
+        <p>{{ product['price'] }} (税込み)</p>
+        <a href="{{ action('buyController@index', $product['id']) }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
-
     <section>
-
+        <p>{{product['description']}}</p>
     </section>
 </article>
 @endsection
