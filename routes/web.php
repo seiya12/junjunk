@@ -15,21 +15,25 @@ Route::get('/', 'TopController@index')->name('top');
 
 Route::get('login', function () {
     return view('login');
-})->name('login');
+});
 
+// 会員登録ルート
 Route::get('signup', function () {
     return view('signup');
-})->name('signup');
+});
 
-// TODO: 商品idの追加
-Route::get('product', function () {
-    return view('product');
-})->name('product');
+Route::get('signup/form', function () {
+    return view('signup-form');
+})->name('signup.form');
 
-// TODO: 商品idの追加
-Route::get('buy', function () {
-    return view('buy');
-})->name('buy');
+Route::post('signup/form', 'AuthController@signup')->name('signup');
+
+// 商品詳細ルート
+Route::get('product/{id}', 'ProductController@index');
+
+// 購入ルート
+Route::get('buy/{id}', 'BuyController@index');
+Route::get('buy/complete/{id}', 'BuyController@buy');
 
 // 認証ルート
 Route::post('login', 'AuthController@login')->name('auth.login');
