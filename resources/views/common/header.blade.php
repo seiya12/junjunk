@@ -1,7 +1,7 @@
 @section('header')
 <header class="shadow-sm">
     <div class="d-flex justify-content-between mb-1">
-        <a><img src="{{asset('img/logo.jpg')}}" alt="ロゴ画像" width=180></a>
+        <a href="/"><img src="{{asset('img/logo.jpg')}}" alt="ロゴ画像" width=180></a>
         <div id="login_btn">
             <a href="{{ action('AuthController@signup') }}"><button type="button" class="btn btn-danger">新規会員</button></a>
             <a href="{{ action('AuthController@login') }}"><button type="button" class="btn btn-outline-primary">ログイン</button></a>
