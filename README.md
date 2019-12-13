@@ -29,7 +29,8 @@
     - CSS
 
 ## 環境設定
-.envに以下のコードを追加
+### .envの設定
+```.env.sample```を```.env```にコピーし、```.env```に以下のコードを追加
 ```
 GOOGLE_CLIENT_ID=970778285473-0s06gqg3lkpedskt6mmae5o61m79ejf9.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=z7lBgwak-scMz7WDmaCowhA2
@@ -46,14 +47,26 @@ DB_DATABASE=junjunk
 DB_USERNAME=root
 DB_PASSWORD=secret
 ```
+
+### DBの作成
+「junjunk」という名前のDatabaseを作って下さい。その後、
+```
+php artisan migrate
+```
+これでテーブルが作成されます。
+
+### Serverの起動
 junjunkフォルダに移動して
 ```
 php artisan serve
 ```
+
 Laradockなど、Dockerで環境構築している場合は
 ```
 php artisan serve --host 0.0.0.0
 ```
+
+
 
 ## インストール
 
