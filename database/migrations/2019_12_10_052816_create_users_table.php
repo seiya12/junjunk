@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->char('user_code', 9)->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('full_name');
+            $table->string('name');
             $table->char('postal_code', 7);
             $table->string('prefectures');
             $table->string('street_address');
