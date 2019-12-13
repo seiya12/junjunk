@@ -114,6 +114,7 @@ class AuthController extends Controller
 
     public function createUserByGoogle($gUser)
     {
+        // TODO: ユーザコード(019C00001) like 019c if(count() == null){code = 1}else{0パディング + (count()+1)}
         $user = User::create([
             'name'     => $gUser->name,
             'email'    => $gUser->email,
