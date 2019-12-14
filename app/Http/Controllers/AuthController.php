@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\User;
+use App\Models\User;
 use Socialite;
 use Hash;
 
@@ -21,7 +21,7 @@ class AuthController extends Controller
      * ログイン関数
      *
      * @param Request $request
-     * @return view($msg)
+     * @return /loginにリダイレクト
      *
      * @author Gori
      */
@@ -53,22 +53,23 @@ class AuthController extends Controller
     }
 
     /**
-     * 新規登録関数
+     * 新規会員登録関数
      *
      * @param Request $request
-     * @return view($msg)
+     * @return /topにリダイレクト
      *
      * @author Gori
      */
     public function signup(Request $req)
     {
-
         $validator = Validator::make($req->all(), [
-            'name' => 'required|string|max:100',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|string|min:8|max:255',
-            'zip-code' => 'required|int|min:7|max:20',
-            'address' => 'required|min:3|max:50',
+            'name' => 'required|string|max:100',
+            'postal_code' => 'required|int|min:7|max:10',
+            'prefectures' => 'required|string|max:5',
+            'street_address' => 'required|int|min:7|max:20',
+            'account_name' => 'required|string|min:1|max:30',
         ]);
 
         if ($validator->fails()) {
@@ -76,56 +77,113 @@ class AuthController extends Controller
             return redirect()->route('signup')->with('message', $msg);
         }
 
+        $userCode = $this->createUserCode();
         $user = User::create([
-            'name'     => $req->name,
-            'email'    => $req->email,
-            'password' => $req->password,
+            'user_code'      => $userCode,
+            'email'          => $req->email,
+            'password'       => $req->password,
+            'name'           => $req->name,
+            'postal_code'    => $req->postal_code,
+            'prefectures'    => $req->prefectures,
+            'street_address' => $req->street_address,
+            'account_name'   => $req->account_name,
         ]);
 
         // ログイン処理
         Auth::login($user);
         $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
+
+        return redirect()->route('top')->with('message', $msg);
     }
 
-    public function redirectToGoogle()
+    public function redirectTo($provider)
     {
         // Googleへのリダイレクト
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function handleGoogleCallback()
+    public function handleProviderCallback($provider)
     {
-        $gUser = Socialite::driver('google')->stateless()->user();
+        $pUser = Socialite::driver($provider)->stateless()->user();
         // email が合致するユーザーを取得
-        $user = User::where('email', $gUser->getEmail())->first();
+        $user = User::where('email', $pUser->getEmail())->first();
         if ($user) {
             // ログイン処理
             Auth::login($user);
             $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
             return redirect()->route('top')->with('message', $msg);
         } else {
+            // ユーザコードの生成
+            $userCode = $this->createUserCode();
             // 見つからなければ新しくユーザーを作成
-            $user = $this->createUserByGoogle($gUser);
+            $user = $this->createUserByProvider($pUser, $userCode);
             Auth::login($user);
             $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
+
             return redirect()->route('top')->with('message', $msg);
         }
     }
 
-    public function createUserByGoogle($gUser)
+    /**
+     * Google で新規会員登録関数
+     *
+     * @param [type] $gUser
+     * @param [type] $userCodes
+     * @return $user
+     *
+     * @author Gori
+     */
+    public function createUserByProvider($pUser, $userCode)
     {
-        // TODO: ユーザコード(019C00001) like 019c if(count() == null){code = 1}else{0パディング + (count()+1)}
         $user = User::create([
-            'name'     => $gUser->name,
-            'email'    => $gUser->email,
-            'password' => Hash::make(uniqid()),
+            'user_code'      => $userCode,
+            'name'           => $pUser->name,
+            'email'          => $pUser->email,
+            'password'       => Hash::make(uniqid()),
+            'postal_code'    => '',
+            'prefectures'    => '',
+            'street_address' => '',
+            'account_name'   => '',
         ]);
+
         return $user;
     }
 
+    /**
+     * ログアウト関数
+     *
+     * @return /loginにリダイレクト
+     *
+     * @author Gori
+     */
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('signup');
+        $msg = 'ログアウトに成功しました';
+
+        return redirect()->route('login')->with('message', $msg);
+    }
+
+    /**
+     * ユーザコード生成関数
+     *
+     * @return $userCode
+     *
+     * @author Gori
+     */
+    public function createUserCode()
+    {
+        // 999F99999の作成
+        $year = str_pad(date('y'), 3, 0, STR_PAD_LEFT);
+        $month = strtoupper(dechex(date('n')));
+        $cnt = User::where('user_code', 'LIKE', "$year%")->count();
+        if ($cnt === 0) {
+            $num = str_pad(1, 5, 0, STR_PAD_LEFT);
+        } else {
+            $num = str_pad($cnt + 1, 5, 0, STR_PAD_LEFT);
+        }
+        $userCode = $year . $month . $num;
+
+        return $userCode;
     }
 }
