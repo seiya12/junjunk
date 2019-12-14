@@ -35,10 +35,15 @@
 GOOGLE_CLIENT_ID=970778285473-0s06gqg3lkpedskt6mmae5o61m79ejf9.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=z7lBgwak-scMz7WDmaCowhA2
 GOOGLE_CALLBACK_URL=/login/google/callback
+
+GITHUB_CLIENT_ID=50bafab3b241aefa1274
+GITHUB_CLIENT_SECRET=8189e4ab6177fefe2ff9c35731c0bcc3387a2544
+GITHUB_CALLBACK_URL=/login/github/callback
 ```
 
 DB_HOST, DB_USERNAME, DB_PASSWORDをを自分の環境に合わせる
-（恐らく他はみんな一緒）
+（恐らく他はみんな一緒）<br>
+(例)
 ```
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -51,9 +56,16 @@ DB_PASSWORD=secret
 ### DBの作成
 「junjunk」という名前のDatabaseを作って下さい。その後、
 ```
+php artisan migrate refresh
 php artisan migrate
 ```
-これでテーブルが作成されます。
+これでエラーが表示される場合は
+```
+php artisan migrate fresh
+php artisan migrate
+```
+を実行して下さい。
+これでデータベースにテーブルが作成されます。
 
 ### Serverの起動
 junjunkフォルダに移動して
@@ -65,7 +77,7 @@ Laradockなど、Dockerで環境構築している場合は
 ```
 php artisan serve --host 0.0.0.0
 ```
-
+その後、localhost:8000にアクセスするとTOPページが表示されます。
 
 
 ## インストール
