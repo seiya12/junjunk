@@ -66,15 +66,15 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|string|min:8|max:255',
             'name' => 'required|string|max:100',
-            'postal_code' => 'required|int|min:7|max:10',
-            'prefectures' => 'required|string|max:5',
-            'street_address' => 'required|int|min:7|max:20',
-            'account_name' => 'required|string|min:1|max:30',
+            'postal_code' => 'required|int',
+            'prefectures' => 'required|string',
+            'street_address' => 'required|string|min:1|max:20',
+            'account_name' => 'required|string|min:1|max:20',
         ]);
 
         if ($validator->fails()) {
             $msg = '値が不正です。';
-            return redirect()->route('signup')->with('message', $msg);
+            return redirect()->back()->withErrors($validator->errors())->withInput($req->all)->with('message', $msg);;
         }
 
         $userCode = $this->createUserCode();
