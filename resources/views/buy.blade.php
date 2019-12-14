@@ -1,9 +1,9 @@
 @extends('layout.layout')
 
 <!-- head -->
-@section('title', 'Top')
+@section('title', 'Buy')
 @section('style')
-<link rel="stylesheet" href="{{asset('css/top.css')}}" />
+<link rel="stylesheet" href="{{asset('css/buy.css')}}" />
 @endsection
 @include('common.head')
 
