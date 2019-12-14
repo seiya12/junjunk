@@ -56,13 +56,16 @@ DB_PASSWORD=secret
 ### DBの作成
 「junjunk」という名前のDatabaseを作って下さい。その後、
 ```
-php artisan migrate refresh
 php artisan migrate
+```
+を実行して下さい。
+すでにテーブルを作成している場合は、
+```
+php artisan migrate refresh
 ```
 これでエラーが表示される場合は
 ```
 php artisan migrate fresh
-php artisan migrate
 ```
 を実行して下さい。
 これでデータベースにテーブルが作成されます。
