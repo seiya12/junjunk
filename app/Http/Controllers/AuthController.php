@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         if ($valid->fails()) {
             $msg = '値が不正です。';
-            return redirect()->route('login')->with('message', $msg);
+            return redirect()->back()->with('message', $msg);
         }
 
         $user = User::where('email', $email)->first();
@@ -48,7 +48,7 @@ class AuthController extends Controller
             return redirect()->route('top')->with('message', $msg);
         } else {
             $msg = 'ログインに失敗しました。';
-            return redirect()->route('login')->with('message', $msg);
+            return redirect()->back()->with('message', $msg);
         }
     }
 
