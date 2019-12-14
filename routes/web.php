@@ -13,6 +13,9 @@
 
 Route::get('/', 'TopController@index')->name('top');
 
+Route::get('mypage', 'MyPageController@index')->name('mypage');
+
+// ログインルート
 Route::get('login', function () {
     return view('login');
 });
@@ -27,6 +30,9 @@ Route::get('signup/form', function () {
 })->name('signup.form');
 
 Route::post('signup/form', 'AuthController@signup')->name('signup');
+
+// ログインアウトルート
+Route::get('logout', 'AuthController@logout')->name('logout');
 
 // 商品詳細ルート
 Route::get('product/{id}', 'ProductController@index');

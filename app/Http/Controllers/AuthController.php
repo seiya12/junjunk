@@ -34,18 +34,13 @@ class AuthController extends Controller
             'email' => 'required|email|max:255',
             'password' => 'required|string|min:8|max:255',
         ]);
-
         if ($valid->fails()) {
             $msg = '値が不正です。';
             return redirect()->back()->with('message', $msg);
         }
-
-        $user = User::where('email', $email)->first();
-        if ($user) {
-            // ログイン処理
-            Auth::login($user);
-            $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
-            return redirect()->route('top')->with('message', $msg);
+        // ログイン処理
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            return redirect()->route('top');
         } else {
             $msg = 'ログインに失敗しました。';
             return redirect()->back()->with('message', $msg);
@@ -78,10 +73,11 @@ class AuthController extends Controller
         }
 
         $userCode = $this->createUserCode();
+        $password = bcrypt($req->password);
         $user = User::create([
             'user_code'      => $userCode,
             'email'          => $req->email,
-            'password'       => $req->password,
+            'password'       => $password,
             'name'           => $req->name,
             'postal_code'    => $req->postal_code,
             'prefectures'    => $req->prefectures,
@@ -91,9 +87,8 @@ class AuthController extends Controller
 
         // ログイン処理
         Auth::login($user);
-        $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
 
-        return redirect()->route('top')->with('message', $msg);
+        return redirect()->route('top');
     }
 
     public function redirectTo($provider)
@@ -110,17 +105,14 @@ class AuthController extends Controller
         if ($user) {
             // ログイン処理
             Auth::login($user);
-            $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
-            return redirect()->route('top')->with('message', $msg);
+            return redirect()->route('top');
         } else {
             // ユーザコードの生成
             $userCode = $this->createUserCode();
             // 見つからなければ新しくユーザーを作成
             $user = $this->createUserByProvider($pUser, $userCode);
             Auth::login($user);
-            $msg = 'ようこそ ' . Auth::getUser()->name . 'さん';
-
-            return redirect()->route('top')->with('message', $msg);
+            return redirect()->route('top');
         }
     }
 
@@ -159,9 +151,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        $msg = 'ログアウトに成功しました';
-
-        return redirect()->route('login')->with('message', $msg);
+        return redirect()->route('auth.login');
     }
 
     /**
