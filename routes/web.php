@@ -40,5 +40,5 @@ Route::post('login', 'AuthController@login')->name('auth.login');
 Route::post('signup', 'AuthController@signup')->name('auth.signup');
 
 // OAuthルート
-Route::get('login/google', 'AuthController@redirectToGoogle');
-Route::get('login/google/callback', 'AuthController@handleGoogleCallback');
+Route::get('login/{provider}', 'AuthController@redirectTo');
+Route::get('login/{provider}/callback', 'AuthController@handleProviderCallback');

@@ -16,6 +16,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      * @var array
      */
     protected $fillable = [
-        'name', 'kana', 'email', 'password',
+        'user_code', 'name', 'email', 'password', 'postal_code', 'prefectures', 'street_address', 'account_name'
     ];
 }

@@ -9,7 +9,7 @@
     </div>
     <form action="" method="get">
         <div class="input-group mb-2">
-            <input type="text" class="form-control bg-light" placeholder="何をお探しですか？">
+            <input type="search" class="form-control bg-light" placeholder="何をお探しですか？">
             <div class="input-group-append">
                 <button type="button" class="btn btn-outline-secondary">検索</button>
             </div>
