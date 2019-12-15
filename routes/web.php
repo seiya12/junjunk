@@ -13,6 +13,9 @@
 
 Route::get('/', 'TopController@index')->name('top');
 
+Route::get('mypage', 'MyPageController@index')->name('mypage');
+
+// ログインルート
 Route::get('login', function () {
     return view('login');
 });
@@ -28,6 +31,9 @@ Route::get('signup/form', function () {
 
 Route::post('signup/form', 'AuthController@signup')->name('signup');
 
+// ログインアウトルート
+Route::get('logout', 'AuthController@logout')->name('logout');
+
 // 商品詳細ルート
 Route::get('product/{id}', 'ProductController@index');
 
@@ -40,5 +46,5 @@ Route::post('login', 'AuthController@login')->name('auth.login');
 Route::post('signup', 'AuthController@signup')->name('auth.signup');
 
 // OAuthルート
-Route::get('login/google', 'AuthController@redirectToGoogle');
-Route::get('login/google/callback', 'AuthController@handleGoogleCallback');
+Route::get('login/{provider}', 'AuthController@redirectTo');
+Route::get('login/{provider}/callback', 'AuthController@handleProviderCallback');
