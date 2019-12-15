@@ -28,9 +28,15 @@
 - りっちゃん
     - CSS
 
+## インストール
+
+```
+$ git clone https://github.com/SD22-team/junjunk.git
+```
+
 ## 環境設定
 ### .envの設定
-```.env.sample```を```.env```にコピーし、```.env```に以下のコードを追加
+新規に```.env```を作成し、```.env.sample```を作成した```.env```にコピー後、最終行に以下のコードを追加
 ```
 GOOGLE_CLIENT_ID=970778285473-0s06gqg3lkpedskt6mmae5o61m79ejf9.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=z7lBgwak-scMz7WDmaCowhA2
@@ -85,16 +91,13 @@ php artisan serve --host 0.0.0.0
 ```
 その後、localhost:8000にアクセスするとTOPページが表示されます。
 
-
-## インストール
-
-```
-$ git clone https://github.com/SD22-team/junjunk.git
-```
+### Gitの運用
+issueにassignする場合は```feature/fix-01```のように```feature/fix-issue番号``` でbranchを切って下さい。
+また、PRを投げる際はコメントの最下行で```close #issue番号```と記述すると、PRがMergeされた後に自動でissueが消去されます。
 
 ## Author
 
-[@MuscleEngineer_](https://twitter.com/KHiroki86_)
+[@KHiroki86_](https://twitter.com/KHiroki86_)
 
 ## License
 
