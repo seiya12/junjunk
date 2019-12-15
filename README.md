@@ -92,7 +92,7 @@ php artisan serve --host 0.0.0.0
 その後、localhost:8000にアクセスするとTOPページが表示されます。
 
 ### Gitの運用
-issueにassignする場合は```feature/fix-01```のように```feature/fix-issue番号``` でbranchを切って下さい。
+issueにassignする場合は```feature/fix-01```のように```feature/fix-issue番号``` でbranchを切って下さい。<br>
 また、PRを投げる際はコメントの最下行で```close #issue番号```と記述すると、PRがMergeされた後に自動でissueが消去されます。
 
 ## Author
