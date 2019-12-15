@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->char('exhibit_type', 1);
             $table->dateTime('end_date');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
