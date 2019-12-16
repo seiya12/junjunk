@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 <!-- head -->
-@section('title', 'Product')
+@section('title', '商品詳細')
 @section('style')
 <link rel="stylesheet" href="{{asset('css/product.css')}}" />
 @endsection
@@ -12,11 +12,6 @@
 
 <!-- content -->
 @section('content')
-@auth
-
-<p>ログインユーザーに表示する。</p>
-
-@endauth
 
 <article>
     <section>
