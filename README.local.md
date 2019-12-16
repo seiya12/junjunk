@@ -39,11 +39,11 @@ php artisan migrate --seed
 を実行してテーブルを作成して下さい。
 すでにテーブルを作成している場合は、
 ```
-php artisan migrate refresh --seed
+php artisan migrate:refresh --seed
 ```
 これでエラーが表示される場合は
 ```
-php artisan migrate fresh --seed
+php artisan migrate:fresh --seed
 ```
 を実行して下さい。
 これでデータベースにテーブルが作成されます。
