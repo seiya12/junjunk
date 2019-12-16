@@ -15,12 +15,12 @@ Route::get('/', 'TopController@index')->name('top');
 
 Route::get('mypage', 'MyPageController@index')->name('mypage');
 
-// ログインルート
+// ログイン
 Route::get('login', function () {
     return view('login');
 });
 
-// 会員登録ルート
+// 会員登録
 Route::get('signup', function () {
     return view('signup');
 });
@@ -31,13 +31,13 @@ Route::get('signup/form', function () {
 
 Route::post('signup/form', 'AuthController@signup')->name('signup');
 
-// ログインアウトルート
+// ログアウト
 Route::get('logout', 'AuthController@logout')->name('logout');
 
-// 商品詳細ルート
+// 商品詳細
 Route::get('product/{id}', 'ProductController@index');
 
-// 購入ルート
+// 購入
 Route::get('buy/{id}', 'BuyController@index');
 Route::get('buy/complete/{id}', 'BuyController@buy');
 
@@ -45,6 +45,13 @@ Route::get('buy/complete/{id}', 'BuyController@buy');
 Route::post('login', 'AuthController@login')->name('auth.login');
 Route::post('signup', 'AuthController@signup')->name('auth.signup');
 
-// OAuthルート
+// OAuth
 Route::get('login/{provider}', 'AuthController@redirectTo');
 Route::get('login/{provider}/callback', 'AuthController@handleProviderCallback');
+
+// カテゴリー
+Route::get('category', function () {
+    return view('category');
+});
+
+Route::get('category/{code}', 'CategoryController@index');

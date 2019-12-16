@@ -1,0 +1,7 @@
+#categories li a{
+    display: flex;
+}
+
+#categories li img{
+    width: 80px;
+}
