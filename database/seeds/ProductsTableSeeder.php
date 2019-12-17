@@ -18,6 +18,8 @@ class ProductsTableSeeder extends Seeder
                 'sell_user_code' => '019B00001',
                 'category' => 'GM',
                 'price' => '1000',
+                'description' => '目に見えて破損しています。',
+                'estimet' => '2~3日',
                 'sell_type' => 'O',
                 'end_date' => '2019-11-11 11:11:11'
             ],
@@ -27,6 +29,8 @@ class ProductsTableSeeder extends Seeder
                 'sell_user_code' => '019B00002',
                 'price' => '3500',
                 'category' => 'CA',
+                'description' => 'カメラ大好き！',
+                'estimet' => '1週間以内',
                 'sell_type' => 'F',
                 'end_date' => '2019-11-11 11:11:11'
             ],
