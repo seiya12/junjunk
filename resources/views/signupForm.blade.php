@@ -5,7 +5,7 @@
 @section('style')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="{{asset('css/bootstrap-social-gh-pages/bootstrap-social.css')}}" />
-<link rel="stylesheet" href="{{asset('css/signup-form.css')}}" />
+<link rel="stylesheet" href="{{asset('css/signupForm.css')}}" />
 @endsection
 @include('common.head')
 
@@ -17,7 +17,7 @@
 <form action="{{ url('/signup/form') }}" method="post">
     {{ csrf_field() }}
     @if(session('message'))
-        <p>{{ session('message') }}</p>
+    <p>{{ session('message') }}</p>
     @endif
     <div class="form-group">
         <label for="name">氏名：</label>
@@ -33,14 +33,14 @@
         <p><input type="password" id="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="8文字以上の英数字" pattern="^[0-9A-Za-z]+$" required></p>
     </div>
     @if($errors)
-        <p>{{$errors->first('password')}}</p>
+    <p>{{$errors->first('password')}}</p>
     @endif
     <div class="form-group">
         <label for="postal-code">郵便番号(ハイフンなし)：</label>
         <input type="text" id="postal_code" class="form-control" name="postal_code" value="{{ old('postal_code') }}" maxlength="7" pattern="^[0-9]+$" required>
     </div>
     @if($errors)
-        <p>{{$errors->first('postal_code')}}</p>
+    <p>{{$errors->first('postal_code')}}</p>
     @endif
     <div class="form-group">
         <label for="prefectures">県：</label>

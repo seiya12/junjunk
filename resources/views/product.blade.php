@@ -15,11 +15,11 @@
 
 <article>
     <section>
-        <h2>{{ $product['title'] }}</h2>
+        <h2>{{ $product['name'] }}</h2>
         <div id="products" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#products" data-slide-to="0" class="active"></li>
-                @foreach($product['url'] as $key => $url)
+                @foreach($imgUrl as $key => $url)
                 <li data-target="#products" data-slide-to="{{ $key + 1 }}"></li>
                 @endforeach
             </ol>
@@ -27,9 +27,9 @@
                 <div class="carousel-item active">
                     <img src="slide1.png" alt="スライド">
                 </div>
-                @foreach($product['url'] as $url)
+                @foreach($imgUrl as $url)
                 <div class="carousel-item">
-                    <img src="{{ $url }}" alt="スライド">
+                    <img src="{{ $url }}.jpg" alt="スライド">
                 </div>
                 @endforeach
                 <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
@@ -48,7 +48,7 @@
         <table class="table">
             <tr>
                 <th>出品者</th>
-                <td>{{ $product['user'] }}</td>
+                <td>{{ $product['account_name'] }}</td>
             </tr>
             <tr>
                 <th>カテゴリー</th>
@@ -60,14 +60,14 @@
             </tr>
             <tr>
                 <th>発送日の目安</th>
-                <td>{{ $product['indication'] }}</td>
+                <td>{{ $product['estimate'] }}</td>
             </tr>
         </table>
         <p>{{ product['price'] }} (税込み)</p>
         <a href="{{ action('buyController@index', $product['id']) }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
     <section>
-        <p>{{product['description']}}</p>
+        <p>{{ product['description'] }}</p>
     </section>
 </article>
 @endsection
