@@ -33,8 +33,9 @@
         </a>
     </div>
 </div>
+
 <article>
-    <section>
+    <section">
         <h2>人気のカテゴリー</h2>
         <ul id="popular-item">
             <li>スマホ</li>
@@ -44,36 +45,49 @@
             <li>腕時計</li>
             <li>バイク</li>
         </ul>
-    </section>
-    <section>
+    </section">
+    <section class="new">
         <h2>スマホ新着</h2>
         <ul>
-            @foreach(session('newPhones') as $product)
-            <li><a href="{{ $product['sell_url'] }}"><img src="{{ $product['img01_url'] }}" alt="商品画像"></a></li>
+            @foreach($newPhones as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img')}}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
             @endforeach
         </ul>
+    </section>
+    <section class="new">
         <h2>パソコン新着</h2>
         <ul>
-            @foreach(session('newPCs') as $product)
-            <li><a href="{{ $product['sell_url'] }}"><img src="{{ $product['img01_url'] }}" alt="商品画像"></a></li>
+            @foreach($newPCs as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
             @endforeach
         </ul>
+    </section>
+    <section class="new">
         <h2>ゲーム新着</h2>
         <ul>
-            @foreach(session('newGames') as $product)
-            <li><a href="{{ $product['sell_url'] }}"><img src="{{ $product['img01_url'] }}" alt="商品画像"></a></li>
+            @foreach($newGames as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
             @endforeach
         </ul>
+    </section>
+    <section class="new">
         <h2>家具新着</h2>
         <ul>
-            @foreach(session('newFurniture') as $product)
-            <li><a href="{{ $product['sell_url'] }}"><img src="{{ $product['img01_url'] }}" alt="商品画像"></a></li>
+            @foreach($newFurniture as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
             @endforeach
         </ul>
+    </section>
+    <section class="new">
         <h2>腕時計新着</h2>
         <ul>
-            @foreach(session('newWatches') as $product)
-            <li><a href="{{ $product['sell_url'] }}"><img src="{{ $product['img01_url'] }}" alt="商品画像"></a></li>
+            @foreach($newWatches as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
             @endforeach
         </ul>
     </section>

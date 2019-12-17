@@ -12,6 +12,6 @@ class CategoryController extends Controller
         //TODO: 修正
         $products = Product::where('category', $code)->get(['product_code', 'name', 'price']);
 
-        return view('searchCategory', compact('products'));
+        return view('category', compact('products'));
     }
 }
