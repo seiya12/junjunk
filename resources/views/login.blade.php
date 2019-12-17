@@ -19,14 +19,18 @@
     <a href="signup" id="signup-btn"><button type="button" class="btn btn-primary">新規会員登録</button></a>
 </div>
 
-<form id="login" action="{{ url('login')}}" method="post">
+<form id="login" action="{{ url('/login')}}" method="post">
+    {{ csrf_field() }}
     <a href="login/google"><button type="button" class="btn btn-danger"><span class="fa fa-google"></span>Googleでログイン</button></a>
     <a href="login/github"><button type="button" class="btn btn-dark"><span class="fa fa-github"></span>GitHubでログイン</button></a>
+    @if(session('message'))
+    <p>{{ session('message') }}</p>
+    @endif
     <div class="form-group">
-        <input type="text" id="mail" class="form-control" placeholder="メールアドレス">
+        <input type="text" id="mail" class="form-control" placeholder="メールアドレス" name="email">
     </div>
     <div class="form-group">
-        <input type="password" id="pass" class="form-control" placeholder="パスワード">
+        <input type="password" id="pass" class="form-control" placeholder="パスワード" name="password">
     </div>
     <p id="login-btn"><button type="submit" class="btn btn-danger">ログイン</button></p>
     <a href="#">パスワードをお忘れの方</a>

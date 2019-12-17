@@ -12,11 +12,6 @@
 
 <!-- content -->
 @section('content')
-@auth
-
-<p>ログインユーザーに表示する。</p>
-
-@endauth
 <div id="slide" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -38,8 +33,9 @@
         </a>
     </div>
 </div>
+
 <article>
-    <section>
+    <section">
         <h2>人気のカテゴリー</h2>
         <ul id="popular-item">
             <li>スマホ</li>
@@ -49,13 +45,51 @@
             <li>腕時計</li>
             <li>バイク</li>
         </ul>
-    </section>
-    <section>
+    </section">
+    <section class="new">
         <h2>スマホ新着</h2>
+        <ul>
+            @foreach($newPhones as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img')}}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
+            @endforeach
+        </ul>
+    </section>
+    <section class="new">
         <h2>パソコン新着</h2>
+        <ul>
+            @foreach($newPCs as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
+            @endforeach
+        </ul>
+    </section>
+    <section class="new">
         <h2>ゲーム新着</h2>
+        <ul>
+            @foreach($newGames as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
+            @endforeach
+        </ul>
+    </section>
+    <section class="new">
         <h2>家具新着</h2>
+        <ul>
+            @foreach($newFurniture as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
+            @endforeach
+        </ul>
+    </section>
+    <section class="new">
         <h2>腕時計新着</h2>
+        <ul>
+            @foreach($newWatches as $product)
+            <li><a href="/product/{{ $product['product_code'] }}"><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></a></li>
+            <li>{{ $product['name'] }}</li>
+            @endforeach
+        </ul>
     </section>
 </article>
 @endsection

@@ -1,9 +1,9 @@
 @extends('layout.layout')
 
 <!-- head -->
-@section('title', 'Top')
+@section('title', '商品詳細')
 @section('style')
-<link rel="stylesheet" href="{{asset('css/top.css')}}" />
+<link rel="stylesheet" href="{{asset('css/product.css')}}" />
 @endsection
 @include('common.head')
 
@@ -12,11 +12,6 @@
 
 <!-- content -->
 @section('content')
-@auth
-
-<p>ログインユーザーに表示する。</p>
-
-@endauth
 
 <article>
     <section>

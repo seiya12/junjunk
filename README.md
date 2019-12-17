@@ -28,45 +28,17 @@
 - りっちゃん
     - CSS
 
-## 環境設定
-### .envの設定
-```.env.sample```を```.env```にコピーし、```.env```に以下のコードを追加
-```
-GOOGLE_CLIENT_ID=970778285473-0s06gqg3lkpedskt6mmae5o61m79ejf9.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=z7lBgwak-scMz7WDmaCowhA2
-GOOGLE_CALLBACK_URL=/login/google/callback
-```
-
-DB_HOST, DB_USERNAME, DB_PASSWORDをを自分の環境に合わせる
-（恐らく他はみんな一緒）
-```
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=junjunk
-DB_USERNAME=root
-DB_PASSWORD=secret
-```
-
-### DBの作成
-「junjunk」という名前のDatabaseを作って下さい。その後、
-```
-php artisan migrate
-```
-これでテーブルが作成されます。
-
-### Serverの起動
-junjunkフォルダに移動して
-```
-php artisan serve
-```
-
-Laradockなど、Dockerで環境構築している場合は
-```
-php artisan serve --host 0.0.0.0
-```
-
-
+## 画面数
+トップ
+カテゴリ検索
+商品一覧
+商品詳細
+購入画面
+出品画面
+ログイン画面
+新規会員登録画面
+マイページ
+マッチングサービス
 
 ## インストール
 
@@ -76,7 +48,7 @@ $ git clone https://github.com/SD22-team/junjunk.git
 
 ## Author
 
-[@MuscleEngineer_](https://twitter.com/KHiroki86_)
+[@KHiroki86_](https://twitter.com/KHiroki86_)
 
 ## License
 
