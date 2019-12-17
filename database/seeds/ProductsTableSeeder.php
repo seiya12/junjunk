@@ -19,7 +19,7 @@ class ProductsTableSeeder extends Seeder
                 'category' => 'GM',
                 'price' => '1000',
                 'description' => '目に見えて破損しています。',
-                'estimet' => '2~3日',
+                'estimate' => '2~3日',
                 'sell_type' => 'O',
                 'end_date' => '2019-11-11 11:11:11'
             ],
@@ -30,7 +30,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => '3500',
                 'category' => 'CA',
                 'description' => 'カメラ大好き！',
-                'estimet' => '1週間以内',
+                'estimate' => '1週間以内',
                 'sell_type' => 'F',
                 'end_date' => '2019-11-11 11:11:11'
             ],

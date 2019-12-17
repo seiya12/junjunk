@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->char('category', 2);
             $table->integer('price');
             $table->text('description');
-            $table->string('estimet');
+            $table->string('estimate');
             $table->char('sell_type', 1);
             $table->dateTime('end_date');
             $table->timestamps();
