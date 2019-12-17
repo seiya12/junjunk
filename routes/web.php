@@ -50,8 +50,8 @@ Route::get('login/{provider}', 'AuthController@redirectTo');
 Route::get('login/{provider}/callback', 'AuthController@handleProviderCallback');
 
 // カテゴリー
-Route::get('category', function () {
-    return view('category');
+Route::get('category/', function () {
+    return view('searchCategory');
 });
 
 Route::get('category/{code}', 'CategoryController@index');
