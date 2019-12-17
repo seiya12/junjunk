@@ -42,13 +42,13 @@
                 </a>
             </div>
         </div>
-        <p>{{ product['price'] }} (税込)</p>
+        <p>{{ $product['price'] }} (税込)</p>
     </section>
     <section>
         <table class="table">
             <tr>
                 <th>出品者</th>
-                <td>{{ $product['account_name'] }}</td>
+                <td>{{ $user['account_name'] }}</td>
             </tr>
             <tr>
                 <th>カテゴリー</th>
@@ -56,18 +56,19 @@
             </tr>
             <tr>
                 <th>配送元地域</th>
-                <td>{{ $product['origin'] }}</td>
+                <td>{{ $user['prefectures'] }}</td>
             </tr>
             <tr>
                 <th>発送日の目安</th>
                 <td>{{ $product['estimate'] }}</td>
             </tr>
         </table>
-        <p>{{ product['price'] }} (税込み)</p>
-        <a href="{{ action('buyController@index', $product['id']) }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
+        <p>{{ $product['price'] }} (税込み)</p>
+        <a href="#"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
     <section>
-        <p>{{ product['description'] }}</p>
+        <p>{{ $product['description'] }}</p>
+        <a href="#"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
 </article>
 @endsection

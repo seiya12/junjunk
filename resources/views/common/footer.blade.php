@@ -9,9 +9,7 @@
             <li class="mb-3"><a href="#" class="text-decoration-none text-dark">個人情報保護ポリシー</a></li>
         </ul>
     </nav>
-    <a class="text-center">
-        <p class="mb-1"><img src="{{asset('img/logo.jpg')}}" alt="ロゴ画像" width="180"></p>
-        <p><small>©︎2019 ジャン×ジャンク All Rights Reserved.</small></p>
-    </a>
+    <p class="mb-1 text-center"><a href="/"><img src="{{asset('img/logo.jpg')}}" alt="ロゴ画像" width="180"></a></p>
+    <p class="text-center"><small>©︎2019 ジャン×ジャンク All Rights Reserved.</small></p>
 </footer>
 @endsection
