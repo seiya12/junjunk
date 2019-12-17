@@ -67,7 +67,7 @@
         <a href="{{ action('buyController@index', $product['id']) }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
     <section>
-        <p>{{product['description']}}</p>
+        <p>{{ product['description'] }}</p>
     </section>
 </article>
 @endsection
