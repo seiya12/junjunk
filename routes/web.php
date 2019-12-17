@@ -26,7 +26,7 @@ Route::get('signup', function () {
 });
 
 Route::get('signup/form', function () {
-    return view('signup-form');
+    return view('signupForm');
 })->name('signup.form');
 
 Route::post('signup/form', 'AuthController@signup')->name('signup');
@@ -49,9 +49,13 @@ Route::post('signup', 'AuthController@signup')->name('auth.signup');
 Route::get('login/{provider}', 'AuthController@redirectTo');
 Route::get('login/{provider}/callback', 'AuthController@handleProviderCallback');
 
-// カテゴリー
+// カテゴリー一覧
 Route::get('category/', function () {
     return view('searchCategory');
 });
 
+// カテゴリー検索結果
 Route::get('category/{code}', 'CategoryController@index');
+
+// 商品詳細
+Route::get('product/{code}', 'ProductController@index');
