@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
+use App\Model\User;
 use Socialite;
 use Hash;
 
@@ -73,7 +73,7 @@ class AuthController extends Controller
         }
 
         $userCode = $this->createUserCode();
-        $password = md5($req->password);
+        $password = bcrypt($req->password);
         $user = User::create([
             'user_code'      => $userCode,
             'email'          => $req->email,

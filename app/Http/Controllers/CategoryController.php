@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Model\Product;
+use App\Model\CategoryHistory;
 
 class CategoryController extends Controller
 {
     public function index($code)
     {
-        //TODO: 修正
         $products = Product::where('category', $code)->get(['product_code', 'name', 'price']);
+        $popularCategory = CategoryHistory::where('category', $code)->first();
+        if ($popularCategory == null) {
+            CategoryHistory::create(['category' => $code, 'count' => '1']);
+        } else {
+            $count = $popularCategory->count;
+            $count = $count + 1;
+            CategoryHistory::where('category', $code)->update(['count' => $count]);
+        }
 
         return view('category', compact('products'));
     }

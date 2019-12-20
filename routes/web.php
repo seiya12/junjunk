@@ -13,12 +13,10 @@
 
 Route::get('/', 'TopController@index')->name('top');
 
-Route::get('mypage', 'MyPageController@index')->name('mypage');
-
 // ログイン
 Route::get('login', function () {
     return view('login');
-});
+})->name('login');
 
 // 会員登録
 Route::get('signup', function () {
@@ -36,9 +34,6 @@ Route::get('logout', 'AuthController@logout')->name('logout');
 
 // 商品詳細
 Route::get('product/{id}', 'ProductController@index');
-
-// 購入
-Route::get('buy/{id}', 'BuyController@index');
 
 // 認証ルート
 Route::post('login', 'AuthController@login')->name('auth.login');
@@ -62,5 +57,16 @@ Route::get('search', 'SearchController@search');
 // 商品詳細
 Route::get('product/{code}', 'ProductController@index');
 
-// 決済
-Route::post('/pay', 'BuyController@pay');
+// ログイン済みのみ
+Route::group(['middleware' => 'auth'], function () {
+    // 購入
+    Route::get('buy/{id}', 'BuyController@index');
+
+    // 決済
+    Route::post('pay', 'BuyController@pay');
+
+    // 出品
+    Route::get('sell', 'SellController@index');
+
+    Route::get('mypage', 'MyPageController@index')->name('mypage');
+});

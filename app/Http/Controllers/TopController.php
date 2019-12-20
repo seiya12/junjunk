@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Model\Product;
+use App\Model\CategoryHistory;
 
 class TopController extends Controller
 {
@@ -16,6 +17,9 @@ class TopController extends Controller
         $newFurniture = Product::where('category', 'FT')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name']);
         $newWatches = Product::where('category', 'WC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name']);
 
-        return view('top', compact('newPhones', 'newPCs', 'newGames', 'newFurniture', 'newWatches'));
+        $popularItems = CategoryHistory::join('category_correspond', 'code', '=', 'category_histories.category')
+            ->orderBy('category_histories.count', 'desc')->limit(6)
+            ->get(['name', 'code']);
+        return view('top', compact('newPhones', 'newPCs', 'newGames', 'newFurniture', 'newWatches', 'popularItems'));
     }
 }
