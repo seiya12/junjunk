@@ -39,7 +39,6 @@ Route::get('product/{id}', 'ProductController@index');
 
 // 購入
 Route::get('buy/{id}', 'BuyController@index');
-Route::get('buy/complete/{id}', 'BuyController@buy');
 
 // 認証ルート
 Route::post('login', 'AuthController@login')->name('auth.login');
@@ -57,5 +56,11 @@ Route::get('category/', function () {
 // カテゴリー検索結果
 Route::get('category/{code}', 'CategoryController@index');
 
+// 商品検索
+Route::get('search', 'SearchController@search');
+
 // 商品詳細
 Route::get('product/{code}', 'ProductController@index');
+
+// 決済
+Route::post('/pay', 'BuyController@pay');

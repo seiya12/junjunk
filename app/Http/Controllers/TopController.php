@@ -9,7 +9,6 @@ class TopController extends Controller
 {
     public function index()
     {
-        // TODO: titleも取る？
         // 新着商品の取得
         $newPhones = Product::where('category', 'MP')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name']);
         $newPCs = Product::where('category', 'PC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name']);

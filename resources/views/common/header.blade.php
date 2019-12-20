@@ -13,11 +13,11 @@
             @endif
         </div>
     </div>
-    <form action="" method="get">
+    <form action="search" method="get">
         <div class="input-group mb-2">
-            <input type="search" class="form-control bg-light" placeholder="何をお探しですか？">
+            <input type="search" class="form-control bg-light" placeholder="何をお探しですか？" name="keyword">
             <div class="input-group-append">
-                <button type="button" class="btn btn-outline-secondary">検索</button>
+                <button type="submit" class="btn btn-outline-secondary">検索</button>
             </div>
         </div>
     </form>
