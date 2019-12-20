@@ -52,6 +52,10 @@ php artisan migrate:fresh --seed
 これでデータベースにテーブルが作成されます。
 
 ## Serverの起動
+```
+php artisan key:generate
+```
+で暗号化用の鍵を作成。<br>
 junjunkフォルダに移動して
 ```
 php artisan serve
