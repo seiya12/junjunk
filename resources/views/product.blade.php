@@ -64,11 +64,11 @@
             </tr>
         </table>
         <p>{{ $product['price'] }} (税込み)</p>
-        <a href="#"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
+        <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
     <section>
         <p>{{ $product['description'] }}</p>
-        <a href="#"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
+        <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
     </section>
 </article>
 @endsection

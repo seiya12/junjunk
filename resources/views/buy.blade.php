@@ -12,37 +12,32 @@
 
 <!-- content -->
 @section('content')
-@auth
-
-<p>ログインユーザーに表示する。</p>
-
-@endauth
 
 <article>
     <section id="product">
         <h2 id="title">購入内容の確認</h2>
-        <p><img src="{{ $product['url] }}" alt="商品画像"></p>
+        @foreach($images as $img)
+        <p><img src="{{ asset('img') }}/{{ $img['url'] }}" alt="商品画像"></p>
+        @endforeach
         <div id="product-inner">
-            <p>{{ $product['title'] }}</p>
+            <p>{{ $product['name'] }}</p>
             <p>¥{{ $product['price'] }} (税込み)</p>
         </div>
         <h2>支払い金額</h2>
         <p>¥{{ $product['price'] }}</p>
     </section>
-    <section id="pay-usage">
-        <h2>支払い方法</h2>
-        <p>クレジットカード</p>
-        <p>************1234</p>
-        <p>有効期限 01/21</p>
-        <p><img src="{{ asset('img/visa.png') }}" alt="Visa"></p>
-    </section>
     <section id="address">
         <h2>配送先</h2>
-        <p>〒{{ $user['zip_code'] }}</p>
-        <p>{{ $user['zip_address'] }}</p>
+        <p>〒{{ $user['postal_code'] }}</p>
+        <p>{{ $user['street_address'] }}</p>
         <p>田中 太郎</p>
     </section>
-    <a href="{{ action('buyController@buy', $product['id']) }}"><button class="btn btn-danger">購入する</button></a>
+    <form action="{{ asset('pay') }}" method="POST">
+        {{ csrf_field() }}
+        <input type="hidden" name="amount" id="amount" value="{{ $product['price'] }}">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="{{ $product['price'] }}" data-name="ジャン×ジャンク決済" data-label="購入する" data-description="ジャン×ジャンク" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
+        </script>
+    </form>
 </article>
 @endsection
 

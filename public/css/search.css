@@ -1,0 +1,62 @@
+.product {
+    width: 40%;
+}
+
+.product img {
+    width: 40%;
+}
+
+#search-detail-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown {
+    width: 40%;
+    margin: 20px;
+}
+
+.dropdown button {
+    width: 100%;
+}
+
+#modal {
+    width: 40%;
+    margin: 20px;
+}
+
+#modal button {
+    width: 100%;
+}
+
+.modal {
+    width: 80%;
+    margin: auto;
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    width: 30%;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#add-input {
+    padding: 10px;
+}
+
+.price-input {
+    width: 40%;
+    padding: 10px;
+}
