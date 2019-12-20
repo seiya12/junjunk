@@ -14,6 +14,9 @@ GOOGLE_CALLBACK_URL=/login/google/callback
 GITHUB_CLIENT_ID=50bafab3b241aefa1274
 GITHUB_CLIENT_SECRET=8189e4ab6177fefe2ff9c35731c0bcc3387a2544
 GITHUB_CALLBACK_URL=/login/github/callback
+
+STRIPE_KEY=pk_test_ksgoKkZu1VxCb8bVFQHWkL4V00zmwXcht5
+STRIPE_SECRET=sk_test_vmvnO4Dnh57dT2Mpfg2Gx11Q005wou7kFu
 ```
 
 DB_HOST, DB_USERNAME, DB_PASSWORDなどを自分の環境に合わせる<br>
