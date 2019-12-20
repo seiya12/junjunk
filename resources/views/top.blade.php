@@ -38,12 +38,9 @@
     <section">
         <h2>人気のカテゴリー</h2>
         <ul id="popular-item">
-            <li><a href="/category/MP">スマホ</a></li>
-            <li><a href="/category/PC">パソコン</a></li>
-            <li><a href="/category/GM">ゲーム</a></li>
-            <li><a href="/category/FT">家具</a></li>
-            <li><a href="/category/WC">腕時計</a></li>
-            <li><a href="/category/VL">乗り物</a></li>
+            @foreach($popularItems as $item)
+            <li><a href="/category/{{ $item['code'] }}">{{ $item['name'] }}</a></li>
+            @endforeach
         </ul>
     </section">
     <section class="new">

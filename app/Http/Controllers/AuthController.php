@@ -73,7 +73,7 @@ class AuthController extends Controller
         }
 
         $userCode = $this->createUserCode();
-        $password = md5($req->password);
+        $password = bcrypt($req->password);
         $user = User::create([
             'user_code'      => $userCode,
             'email'          => $req->email,

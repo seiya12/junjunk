@@ -10,9 +10,16 @@ class CategoryController extends Controller
 {
     public function index($code)
     {
-        //TODO: 修正
         $products = Product::where('category', $code)->get(['product_code', 'name', 'price']);
-        $popularCategory = CategoryHistory::create(['name' => 'Flight 10']);
+        $popularCategory = CategoryHistory::where('category', $code)->first();
+        if ($popularCategory == null) {
+            CategoryHistory::create(['category' => $code, 'count' => '1']);
+        } else {
+            $count = $popularCategory->count;
+            $count = $count + 1;
+            CategoryHistory::where('category', $code)->update(['count' => $count]);
+        }
+
         return view('category', compact('products'));
     }
 }
