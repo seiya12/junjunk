@@ -16,9 +16,7 @@
 <article>
     <section id="product">
         <h2 id="title">購入内容の確認</h2>
-        @foreach($images as $img)
-        <p><img src="{{ asset('img') }}/{{ $img['url'] }}" alt="商品画像"></p>
-        @endforeach
+        <p><img src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <div id="product-inner">
             <p>{{ $product['name'] }}</p>
             <p>¥{{ $product['price'] }} (税込み)</p>
