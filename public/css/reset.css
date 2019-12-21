@@ -101,6 +101,7 @@ body {
     width: 500px;
     margin: 0 auto;
     background-color: white;
+    position: relative;
 }
 
 @media screen and (max-width: 480px) {
@@ -109,6 +110,7 @@ body {
         width: 100%;
         margin: 0 auto;
         background-color: white;
+        position: relative;
     }
 }
 
@@ -131,6 +133,13 @@ footer li {
 
 footer small {
     font-size: 0.6em;
+}
+
+#sell {
+    position: fixed;
+    right:calc(50% - 250px);
+    bottom: -3px;
+    text-decoration: none;
 }
 
 /* コンテンツのタイトル文字 */

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83" height="88" viewBox="0 0 83 88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ea002a;
+        stroke: #ea002a;
+        stroke-width: 1px;
+      }
+
+      .cls-2 {
+        font-size: 16.667px;
+        fill: #fff;
+        font-family: "Kozuka Gothic Pr6N";
+      }
+    </style>
+  </defs>
+  <circle id="楕円形_2" data-name="楕円形 2" class="cls-1" cx="50" cy="50" r="50"/>
+  <image id="レイヤー_1" data-name="レイヤー 1" x="25" y="39" width="44" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAoCAYAAACFFRgXAAAEqUlEQVRYhc2ZS2hcVRjHf5NkJpJMbJBGbGPwUV8UrVVcqfjAVzW4cSHBTd1UdOPOhY+lr13RTcGVWhBxIyKFWhWL6EZKW2tQG6MiWo1mKG2TWDtJ5pMv/C+cntyZuecS2v5hYHJzvv/5n3O/1zlTMTNKoA94BXgSqAMLBSkGgXngbeBFYCl16r4yaoGHgPuBS/X3QILtgGy/BPYkz+w7nPCpmtm4me03s6aVR1Mc4+IsrCHcYX+164Batpac9d0MPAfcET0/AyzKphLviZ5VgX498+936w3759ucuTKeJnBSrkTmwy70AeBRYFQDlwPjlgiuAq4BeoL/uf8eBGbkk73RxMsSdRlwq/w45J0GftXCQt6M5xjwMfCpC3fBVwJPAY8D64GLcnY426X+nB38GngWONFlh4eBN3PejukNxbbZ9/+ABvAB8Jb7xU4zmynpjZNmNpHggxOyKQPXuNNJGjnGy2a2ZGat6JNh0cyOmtnTiUFTlc1RcWSI51mShhiNviDIMn9zB/8N+Dcn7fXqVS2svB74UMFWFD72XWBObjgoV1iO7JeU/q5QfGX+XHMfnpXvIiFfAK9JdBxA8cLmE8SGqEdC8vhd7PPAvUGgruxwGFwtCfHI/SdRxIgyyLBSkaOmYHS+2WDsfIHFLkpLK3hm8SvP8mW9oGBf+Q3AFuBG4Lo2gqeASeAI8GPBUl6XlrOyTtnSjNzIc/cEcA9wcZfxp4D9wPvKqY0yk5YV7Ct/BtihglCEZwh4GLhFrvN6YsCuoIzg9RK7HRhLsMvcbUy2jl2pO50quK5ObUcbsX8C36mcOrzM3wRsjMZtEscvwEcp2SZVsAfVEzli5xVQ3i7ukxDH1cCDwLgCsx7YjInrB/Uiay64okxwZ1T3XeznwKvAN5HNceAA8BnwAnBfINrE5ZyH2nSHq9BTZJAwotc7FKUa39mXgcMdbA9rzJFoA4bEOVJURIpgj+zNkdi/5AYHgtybh6bG7JFNKHqzuNdc8LDKaQhvvPcmcOzNadbXibsQUgSf0SfEMZXdopgOMkgn3rZIEXxBIEVwf3AmyzCa4n8aOxo9y+NtixTBJ9Q9hfBD6bYEjm2yCXFS3Gsu2P3v+yhfblBRuC06CMSoacy4bDKYOAvHQYrgWZXduUi0V7CXgK0dbLdqzJZI7Jw4ZzvYnoWUSmfqab8CHgme11XBRhJLc0Vck0WrHCV6CW/E31N1CvsJF3I74FcGdxVofhy/i2sqRUCqYO8bPtHObVfXFWJjG3ExfgbeEVfSubBMP9xQ803UwMcXKDFMp+EZiT1nDTyaaJeie0In26EuNvM6kWdHpGSx5AjOro1OF7BtaPKDwUH02jaH0J+CA+hUwSA7HVxhtRVc0QXGBhlUOxCahE1L0CH59nCwe1UJ9qzxR9BS1rq40KI0DOSdmsMHVQXSYzruDK7mWoWWhDc1USsacAlwvUTWCub+BQXvpmjTKn7zcyryv+Vg4m6BlKFoHk3h65HY8HZori+n8e7tcIV0vtH0VewG/r5ABYZwjbt9h99QgHW60D4fyL3Qzn4y8MDwmu8/GVyugfEV6LlG5paeXfwng33A8f8BOo31ADiP4T8AAAAASUVORK5CYII="/>
+  <text id="出_品" data-name="出 品" class="cls-2" x="28.138" y="30.553">出 品</text>
+</svg>

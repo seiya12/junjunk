@@ -46,6 +46,12 @@
     width: 30%;
 }
 
+.modal-content img {
+    width: 5%;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
 .modal form {
     display: flex;
     flex-direction: column;

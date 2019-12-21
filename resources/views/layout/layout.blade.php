@@ -10,7 +10,6 @@
         @yield('header')
         @yield('content')
         @yield('footer')
-
         <!-- JavaScript -->
         <script src="{{ asset('js/app.js') }}"></script>
     </div>
