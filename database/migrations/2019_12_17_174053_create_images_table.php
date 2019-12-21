@@ -13,7 +13,7 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('image_url', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('product_code', 12);
             $table->string('url');

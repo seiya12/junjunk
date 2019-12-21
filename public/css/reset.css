@@ -137,13 +137,17 @@ footer small {
 
 #sell {
     position: fixed;
-    right:calc(50% - 250px);
+    right: calc(50% - 250px);
     bottom: -3px;
     text-decoration: none;
 }
 
-/* コンテンツのタイトル文字 */
-
-.contents_title {
-    font-size: 1.3em;
+@media screen and (max-width: 480px) {
+    /* 480px以下用（スマートフォン用）の記述 */
+    #sell {
+        position: fixed;
+        right: calc(50% - 100vw * 0.5);
+        bottom: -3px;
+        text-decoration: none;
+    }
 }

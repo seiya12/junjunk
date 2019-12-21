@@ -12,6 +12,6 @@
     <p class="mb-1 text-center"><a href="/"><img src="{{asset('img/logo.jpg')}}" alt="ロゴ画像" width="180"></a></p>
     <p class="text-center"><small>©︎2019 ジャン×ジャンク All Rights Reserved.</small></p>
 
-    <a href="/sell" id="sell"><img src="{{ asset('img/sell.png') }}" alt="出品" width="100"></a>
+    <a href="/sell" id="sell"><img src="{{ asset('img/sell.png') }}" alt="出品" width="70"></a>
 </footer>
 @endsection
