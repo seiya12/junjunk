@@ -34,9 +34,9 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <form action="search" method="get">
-                            <h3>キーワードの追加</h3>
+                            <h3><img src="{{ asset('img/add.svg') }}" alt="Add">キーワードの追加</h3>
                             <p><input type="text" name="keyword" value="{{ $keyword }}" id="add-input"></p>
-                            <h3>カテゴリの選択</h3>
+                            <h3><img src="{{ asset('img/category.svg') }}" alt="Category">カテゴリの選択</h3>
                             <p>
                                 <select name="category">
                                     <option value="">-</option>
@@ -54,7 +54,7 @@
                                     <option value="ET">その他</option>
                                 </select>
                             </p>
-                            <h3>値段</h3>
+                            <h3><img src="{{ asset('img/price.svg') }}" alt="Price">値段</h3>
                             <p>
                                 <input type="number" name="min_price" placeholder="Min" class="price-input"> 〜 <input type="number" name="max_price" placeholder="Max" class="price-input">
                             </p>
