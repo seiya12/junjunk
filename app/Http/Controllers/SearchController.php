@@ -14,10 +14,10 @@ class SearchController extends Controller
         $category = $req->category;
         $price = [
             'min' => $req->min_price,
-            'max' => $req->min_price,
+            'max' => $req->max_price,
         ];
         $min_price = $req->min_price;
-        $max_price = $req->min_price;
+        $max_price = $req->max_price;
 
         if ($sort === 'price-asc') {
             $products = Product::where('name', 'LIKE', "%$keyword%")
@@ -31,7 +31,7 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('price', 'asc')->get(['product_code', 'name', 'price']);
+                ->orderBy('price', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } elseif ($sort === 'price-desc') {
@@ -46,7 +46,8 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('price', 'desc')->get(['product_code', 'name', 'price']);
+                ->orderBy('price', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code']);
+
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } elseif ($sort === 'created-asc') {
             $products = Product::where('name', 'LIKE', "%$keyword%")
@@ -60,7 +61,8 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('created_at', 'asc')->get(['product_code', 'name', 'price']);
+                ->orderBy('created_at', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code']);
+
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } else {
             $products = Product::where('name', 'LIKE', "%$keyword%")
@@ -74,13 +76,9 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->get(['product_code', 'name', 'price']);
+                ->get(['product_code', 'name', 'price', 'sell_user_code']);
+
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         }
-    }
-
-    public function detail(Request $req)
-    {
-        // TODO: 
     }
 }

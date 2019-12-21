@@ -14,7 +14,7 @@ class ProductController extends Controller
         $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('products.product_code', $code)->first(['users.account_name', 'prefectures']);
 
-        $imgUrl = Product::join('images', 'images.product_code', '=', 'products.product_code')
+        $imgUrl = Product::join('image_url', 'image_url.product_code', '=', 'products.product_code')
             ->where('products.product_code', $code)->get('url');
 
         return view('product', compact('product', 'user', 'imgUrl'));

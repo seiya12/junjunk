@@ -8,6 +8,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Product;
 use App\Model\ImageUrl;
+use DateTime;
 
 class SellController extends Controller
 {
@@ -38,7 +39,7 @@ class SellController extends Controller
         $dirPath = storage_path('app/public/sell/') . $user['user_code'];
 
         if (!file_exists($dirPath)) {
-            mkdir($dirPath, 0755, true);
+            mkdir($dirPath, 0777, true);
         }
         foreach ($files as $key => $file) {
             if ($key === 10) {
@@ -47,11 +48,11 @@ class SellController extends Controller
             $this->createImage($file, $req->category, $user, ++$key);
             ImageUrl::create([
                 'product_code'   => $productCode,
-                'url'            => $productCode . $key,
+                'url'            => $productCode . '_' . $key,
             ]);
         }
 
-        Product::create([
+        Product::insert([
             'product_code'   => $productCode,
             'name'           => $req->name,
             'sell_user_code' => $user['user_code'],
@@ -60,7 +61,7 @@ class SellController extends Controller
             'description'    => $req->description,
             'estimate'       => $req->estimate,
             'sell_type'      => 'F',
-            'end_date'       => time(),
+            'end_date'       => new DateTime(),
         ]);
 
         return redirect()->route('top');

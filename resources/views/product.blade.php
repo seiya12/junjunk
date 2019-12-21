@@ -18,25 +18,31 @@
         <h2>{{ $product['name'] }}</h2>
         <div id="products" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#products" data-slide-to="0" class="active"></li>
                 @foreach($imgUrl as $key => $url)
-                <li data-target="#products" data-slide-to="{{ $key + 1 }}"></li>
+                    @if($key === 0)
+                        <li data-target="#products" data-slide-to="0" class="active"></li>
+                    @else
+                        <li data-target="#products" data-slide-to="{{ $key }}"></li>
+                    @endif
                 @endforeach
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="slide1.png" alt="スライド">
-                </div>
-                @foreach($imgUrl as $url)
-                <div class="carousel-item">
-                    <img src="{{ $url }}.jpg" alt="スライド">
-                </div>
+                @foreach($imgUrl as $key => $url)
+                    @if($key === 0)
+                        <div class="carousel-item active">
+                            <img src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $url['url'] }}.jpg" alt="スライド">
+                        </div>
+                    @else
+                        <div class="carousel-item">
+                            <img id="carousel-img" src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $url['url'] }}.jpg" alt="スライド">
+                        </div>
+                @endif
                 @endforeach
-                <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#products" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#products" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>

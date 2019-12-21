@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index($code)
     {
-        $products = Product::where('category', $code)->get(['product_code', 'name', 'price']);
+        $products = Product::where('category', $code)->get(['product_code', 'name', 'price', 'sell_user_code']);
         $popularCategory = CategoryHistory::where('category', $code)->first();
         if ($popularCategory == null) {
             CategoryHistory::create(['category' => $code, 'count' => '1']);

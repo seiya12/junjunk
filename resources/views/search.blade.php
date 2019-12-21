@@ -70,7 +70,7 @@
     @endif
     @foreach($products as $product)
     <a href="/product/{{ $product['product_code'] }}" class="product">
-        <p><img src="{{ asset('img') }}/{{ $product['product_code'] }}.jpg" alt="商品画像"></p>
+        <p><img src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <p>{{ $product['name'] }}</p>
         <p>{{ $product['price'] }}</p>
     </a>
