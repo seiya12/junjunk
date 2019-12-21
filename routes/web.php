@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // 出品
     Route::get('sell', 'SellController@index');
+    Route::post('sell', 'SellController@upload');
 
     Route::get('mypage', 'MyPageController@index')->name('mypage');
 });
