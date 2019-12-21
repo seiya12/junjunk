@@ -52,7 +52,7 @@
             </a>
         </li>
         <li>
-            <a href="/category/PM">
+            <a href="/category/MP">
                 <img src="{{ asset('img/category_mp.jpg') }}" alt="カテゴリー画像">
                 <h3>携帯電話</h3>
             </a>
