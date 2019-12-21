@@ -11,12 +11,12 @@ class BuyController extends Controller
 {
     public function index($code)
     {
-        $product = Product::where('product_code', $code)->first();
+        $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code']);
 
         $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('products.product_code', $code)->first(['users.account_name', 'postal_code', 'prefectures', 'street_address']);
 
-        $images = Product::join('images', 'images.product_code', '=', 'products.product_code')
+        $images = Product::join('image_url', 'image_url.product_code', '=', 'products.product_code')
             ->where('products.product_code', $code)->get('url');
 
         return view('buy', compact('product', 'user', 'images'));
