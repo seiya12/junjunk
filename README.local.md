@@ -56,6 +56,10 @@ Serverを起動する前に暗号化用のキーを作成。
 ```
 php artisan key:generate
 ```
+storageフォルダとのシンボリックリンクも作成
+```
+php artisan storage:link
+```
 junjunkフォルダに移動して
 ```
 php artisan serve
