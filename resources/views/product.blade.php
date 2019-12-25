@@ -18,35 +18,32 @@
         <h2>{{ $product['name'] }}</h2>
         <div id="products" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                @foreach($imgUrl as $key => $url)
-                    @if($key === 0)
-                        <li data-target="#products" data-slide-to="0" class="active"></li>
+                @for ($i=0; $i < $cnt; $i++) @if($i===0) <li data-target="#products" data-slide-to="0" class="active">
+                    </li>
                     @else
-                        <li data-target="#products" data-slide-to="{{ $key }}"></li>
+                    <li data-target="#products" data-slide-to="{{ $i }}"></li>
                     @endif
-                @endforeach
+                    @endfor
             </ol>
             <div class="carousel-inner">
-                @foreach($imgUrl as $key => $url)
-                    @if($key === 0)
-                        <div class="carousel-item active">
-                            <img src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $url['url'] }}.jpg" alt="スライド">
-                        </div>
-                    @else
-                        <div class="carousel-item">
-                            <img id="carousel-img" src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $url['url'] }}.jpg" alt="スライド">
-                        </div>
-                @endif
-                @endforeach
-                <a class="carousel-control-prev" href="#products" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#products" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                @for($i = 1; $i <= $cnt; $i++) @if($i===1) <div class="carousel-item active">
+                    <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_{{ $i }}.jpg" alt="スライド">
             </div>
+            @else
+            <div class="carousel-item">
+                <img id="carousel-img" src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_{{ $i }}.jpg" alt="スライド">
+            </div>
+            @endif
+            @endfor
+            <a class="carousel-control-prev" href="#products" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#products" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         </div>
         <p>{{ $product['price'] }} (税込)</p>
     </section>
