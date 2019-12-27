@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Model\Product;
 use App\Model\ImageUrl;
 use DateTime;
+use Storage;
 
 class SellController extends Controller
 {
@@ -37,15 +38,17 @@ class SellController extends Controller
 
         $files = $req->file('file');
         $dirPath = storage_path('app/public/sell/') . $user['user_code'];
+        $urls = array();
 
         if (!file_exists($dirPath)) {
             mkdir($dirPath, 0777, true);
         }
+
         foreach ($files as $key => $file) {
             if ($key === 10) {
                 break;
             }
-            $this->createImage($file, $req->category, $user, ++$key);
+            $urls[] = $this->createImage($file, $req->category, $user, ++$key);
             ImageUrl::create([
                 'product_code'   => $productCode,
                 'url'            => $productCode . '_' . $key,
@@ -69,12 +72,18 @@ class SellController extends Controller
 
     public function createImage($file, $category, $user, $key)
     {
-        // Make filename
-        $fileName = $this->createProductCode($category);
-        $savePath = storage_path('app/public/sell/' .  $user['user_code'] . '/' . $fileName . '_' . $key . '.jpg');
+        $productCode = $this->createProductCode($category);
+        $fileName = $productCode . '_' . $key . '.jpg';
+        $path = '/' .  $user['user_code'] . '/' . $fileName;
 
-        // Save file
-        return Image::make($file)->resize(300, 300)->encode('jpg')->save($savePath);
+        // 画像の縦幅と横幅を変更
+        $thumbFile = Image::make($file)->resize(300, 300)->encode('jpg');
+        // ファイルをS3に保存
+        Storage::disk('s3')->put($path, $thumbFile, 'public');
+        // S3上のURLを取得
+        $url = Storage::disk('s3')->url($path);
+
+        return $url;
     }
 
     public function createProductCode($category)

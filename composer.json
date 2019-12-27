@@ -15,7 +15,11 @@
         "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
+<<<<<<< HEAD
         "predis/predis": "^1.1",
+=======
+        "league/flysystem-aws-s3-v3": "^1.0",
+>>>>>>> 727eda3449f44cf8585a068fd395529b5f65bfca
         "stripe/stripe-php": "^7.14"
     },
     "require-dev": {

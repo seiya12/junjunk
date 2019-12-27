@@ -16,7 +16,7 @@
 <article>
     <section id="product">
         <h2 id="title">購入内容の確認</h2>
-        <p><img src="{{ asset('storage/sell') }}/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
+        <p><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <div id="product-inner">
             <p>{{ $product['name'] }}</p>
             <p>¥{{ $product['price'] }} (税込み)</p>
