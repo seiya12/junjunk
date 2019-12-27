@@ -38,4 +38,4 @@
 @endsection
 
 <!-- footer -->
-@include('common.footer')
+@include('common.user.footer')
