@@ -1,4 +1,4 @@
-{
+
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
@@ -16,6 +16,7 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "stripe/stripe-php": "^7.14"
     },
     "require-dev": {
