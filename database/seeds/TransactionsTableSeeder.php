@@ -18,6 +18,8 @@ class TransactionsTableSeeder extends Seeder
                 'buyer_code' => '019B00002',
                 'product_code' => 'GMF019B00001',
                 'warehouse_code' => 'OSK',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ],
         ]);
     }
