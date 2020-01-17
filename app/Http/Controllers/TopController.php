@@ -17,7 +17,7 @@ class TopController extends Controller
         $newFurniture = Product::where('category', 'FT')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code']);
         $newWatches = Product::where('category', 'WC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code']);
 
-        $popularItems = CategoryHistory::join('category_correspond', 'code', '=', 'category_histories.category')
+        $popularItems = CategoryHistory::join('category_corresponds', 'code', '=', 'category_histories.category')
             ->orderBy('category_histories.count', 'desc')->limit(6)
             ->get(['name', 'code']);
         return view('top', compact('newPhones', 'newPCs', 'newGames', 'newFurniture', 'newWatches', 'popularItems'));

@@ -12,23 +12,22 @@
 
 <!-- content -->
 @section('content')
-
 <article>
     <section id="product">
         <h2 id="title">購入内容の確認</h2>
         <p><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <div id="product-inner">
-            <p>{{ $product['name'] }}</p>
-            <p>¥{{ $product['price'] }} (税込み)</p>
+            <p>{{ $user['sell_user_code'] }}</p>
+            <p>¥{{ $user['price'] }} (税込み)</p>
         </div>
         <h2>支払い金額</h2>
-        <p>¥{{ $product['price'] }}</p>
+        <p>¥{{ $user['price'] }}</p>
     </section>
     <section id="address">
         <h2>配送先</h2>
         <p>〒{{ $user['postal_code'] }}</p>
         <p>{{ $user['street_address'] }}</p>
-        <p>田中 太郎</p>
+        <p>{{ $user['account_name'] }}</p>
     </section>
     <form action="{{ asset('pay') }}" method="POST">
         {{ csrf_field() }}

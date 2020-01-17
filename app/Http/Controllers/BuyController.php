@@ -13,13 +13,10 @@ class BuyController extends Controller
     {
         $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code']);
 
-        $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
-            ->where('products.product_code', $code)->first(['users.account_name', 'postal_code', 'prefectures', 'street_address']);
+        $user = Product::join('users', 'products.sell_user_code', '=', 'users.user_code')
+            ->where('product_code', $code)->first(['users.account_name', 'products.price', 'postal_code', 'prefectures', 'street_address']);
 
-        $images = Product::join('image_url', 'image_url.product_code', '=', 'products.product_code')
-            ->where('products.product_code', $code)->get('url');
-
-        return view('buy', compact('product', 'user', 'images'));
+        return view('buy', compact('product', 'user'));
     }
 
     public function pay(Request $req)

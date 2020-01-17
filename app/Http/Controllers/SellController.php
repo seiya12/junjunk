@@ -35,14 +35,8 @@ class SellController extends Controller
 
         $user = Auth::user();
         $productCode = $this->createProductCode($req->category);
-
         $files = $req->file('file');
-        $dirPath = storage_path('app/public/sell/') . $user['user_code'];
         $urls = array();
-
-        if (!file_exists($dirPath)) {
-            mkdir($dirPath, 0777, true);
-        }
 
         foreach ($files as $key => $file) {
             if ($key === 10) {
