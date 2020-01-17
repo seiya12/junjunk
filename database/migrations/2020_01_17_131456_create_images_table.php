@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CategoryCorrespondTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CategoryCorrespondTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_correspond', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
-            $table->string('name');
+            $table->string('product_code');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CategoryCorrespondTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_histories');
+        Schema::dropIfExists('images');
     }
 }
