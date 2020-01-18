@@ -12,26 +12,38 @@
 
 <!-- content -->
 @section('content')
+<div id="name">{{ $user->account_name }}</div>
 <div id="cont">
-  <div id="name">{{ $user->account_name }}</div>
-  <h1>個人情報設定</h1>
-
+  <h1>アカウント設定</h1>
+  <form action="#">
+    <label>メールアドレス</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->email }}"></p>
+    <label>アカウント名</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->account_name }}"></p>
+    <label>氏名</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->name }}"></p>
+    <label>郵便番号</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->postal_code }}"></p>
+    <label>県</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->prefectures }}"></p>
+    <label>住所</label>
+    <p><input type="text" name ="email" class="form-control" value="{{ $user->street_address }}"></p>
+  </form>
   <h1>出品した商品</h1>
   <ul>
   @foreach ($sells as $sell)
-    <li>{{ $sell->product_code }}</li>
-    <li>{{ $sell->name }}</li>
+    <!-- <li>{{ $sell->product_code }}</li> -->
+    <li><a href="#">{{ $sell->name }}</a></li>
   @endforeach
   </ul>
   <h1>購入した商品</h1>
   <ul>
   @foreach ($buys as $buy)
-    <li>{{ $buy->product_code }}</li>
-    <li>{{ $buy->name }}</li>
+    <!-- <li>{{ $buy->product_code }}</li> -->
+    <li><a href="#">{{ $buy->name }}</a></li>
   @endforeach
   </ul>
 </div>
 @endsection
-
 <!-- footer -->
 @include('common.footer')
