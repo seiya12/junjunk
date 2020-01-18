@@ -12,7 +12,7 @@
 
 <!-- content -->
 @section('content')
-
+<h1 id="title">ジャン×ジャンマッチング</h1>
 @endsection
 
 <!-- footer -->

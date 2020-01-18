@@ -66,7 +66,7 @@
         </div><!-- /.modal -->
     </div>
     @if($keyword)
-    <h1>{{ $keyword }}での検索結果</h1>
+    <h1 id="title">{{ $keyword }}での検索結果</h1>
     @endif
     @foreach($products as $product)
     <a href="/product/{{ $product['product_code'] }}" class="product">
