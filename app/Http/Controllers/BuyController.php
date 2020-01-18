@@ -29,6 +29,6 @@ class BuyController extends Controller
             'source' => $req->stripeToken,
         ));
 
-        return back();
+        return redirect()->route('top');
     }
 }

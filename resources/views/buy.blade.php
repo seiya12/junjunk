@@ -31,7 +31,7 @@
     </section>
     <form action="{{ asset('pay') }}" method="POST">
         {{ csrf_field() }}
-        <input type="hidden" name="amount" id="amount" value="{{ $product['price'] }}">
+        <input type="hidden" name="amount" id="amount" value="{{ $user['price'] }}">
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="{{ $product['price'] }}" data-name="ジャン×ジャンク決済" data-label="購入する" data-description="ジャン×ジャンク" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
         </script>
     </form>
