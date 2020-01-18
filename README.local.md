@@ -8,7 +8,7 @@ $ git clone https://github.com/SD22-team/junjunk.git
 ```.env.sample```を```.env```にコピー後、最終行に以下のコードを追加
 ```
 GOOGLE_CLIENT_ID=970778285473-0s06gqg3lkpedskt6mmae5o61m79ejf9.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=z7lBgwak-scMz7WDmaCowhA2
+GOOGLE_CLIENT_SECRET=EWAD_ykDGRaO6XMIKdW3A43v
 GOOGLE_CALLBACK_URL=/login/google/callback
 
 GITHUB_CLIENT_ID=50bafab3b241aefa1274
