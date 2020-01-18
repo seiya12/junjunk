@@ -12,7 +12,7 @@
 
 <!-- content -->
 @section('content')
-<h1>カテゴリー一覧</h1>
+<h1 id="title">カテゴリー一覧</h1>
 <article>
     <ul id="categories">
         <li>

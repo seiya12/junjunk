@@ -15,7 +15,7 @@
 
 <article>
     <section>
-        <h2>{{ $product['name'] }}</h2>
+        <h2 id="title">{{ $product['name'] }}</h2>
         <div id="products" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 @for ($i=0; $i < $cnt; $i++) @if($i===0) <li data-target="#products" data-slide-to="0" class="active">
@@ -45,10 +45,13 @@
             </a>
         </div>
         </div>
-        <p>{{ $product['price'] }} (税込)</p>
     </section>
     <section>
         <table class="table">
+            <tr>
+                <th>価格</th>
+                <td>{{ $product['price'] }} (税込)</td>
+            </tr>
             <tr>
                 <th>出品者</th>
                 <td>{{ $user['account_name'] }}</td>
