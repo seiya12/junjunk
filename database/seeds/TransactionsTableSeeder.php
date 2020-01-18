@@ -21,6 +21,15 @@ class TransactionsTableSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
             ],
+            [    
+                'transaction_code' => 'OSKO020100001',
+                'seller_code' => '019B00002',
+                'buyer_code' => '019B00001',
+                'product_code' => 'CAF019B00001',
+                'warehouse_code' => 'OSK',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ],
         ]);
     }
 }
