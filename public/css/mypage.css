@@ -21,10 +21,10 @@
   padding: 10px 0px;
   border-bottom: 1px solid #000;
 }
-form {
+#cont form {
   margin-bottom: 60px;
 }
-form p {
+#cont form p {
   margin-bottom: 40px;
 }
 
