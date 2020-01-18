@@ -19,7 +19,6 @@ class CategoryController extends Controller
             $count = $count + 1;
             CategoryHistory::where('category', $code)->update(['count' => $count]);
         }
-
         return view('category', compact('products'));
     }
 }
