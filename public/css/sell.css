@@ -57,6 +57,10 @@
     width: 100%;
 }
 
-#error{
+#error {
     color: red;
+}
+
+#sell {
+    display: none;
 }
