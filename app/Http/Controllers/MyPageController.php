@@ -14,7 +14,8 @@ class MyPageController extends Controller
         // dd(Auth::user());
         $user = Auth::user();
         // dd($user->name);
-        $sells =  Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
+        $sells =  Product::withTrashed()
+            ->join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('user_code',$user->user_code)
             ->select('product_code','products.name')
             ->get();

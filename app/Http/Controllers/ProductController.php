@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Product;
 use Storage;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
             }
             $cnt++;
         }
-
-        return view('product', compact('product', 'user', 'cnt'));
+        $auth = Auth::user()->user_code;
+        return view('product', compact('product', 'user', 'cnt','auth'));
     }
 }
