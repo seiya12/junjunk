@@ -1,7 +1,7 @@
 h2 {
     font-size: 20px;
     font-weight: bold;
-    margin: 40px 0 10px 0;
+    padding: 40px 0 10px 0;
     text-align: center;
 }
 
@@ -22,6 +22,9 @@ h2 {
     padding: 10px;
     background-color: #ddd;
     border-radius: 20px;
+}
+.new {
+    background-color: #ddd;
 }
 
 .new img{
