@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function index($code)
     {
-        $product = Product::where('product_code', $code)->first();
+        $product = Product::withTrashed()->where('product_code', $code)->first();
 
         $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('products.product_code', $code)->first(['user_code', 'users.account_name', 'prefectures']);

@@ -34,14 +34,14 @@
   <ul>
   @foreach ($sells as $sell)
     <!-- <li>{{ $sell->product_code }}</li> -->
-    <li><a href="#">{{ $sell->name }}</a></li>
+    <li><a href="/product/{{ $sell->product_code }}">{{ $sell->name }}</a></li>
   @endforeach
   </ul>
   <h1>購入した商品</h1>
   <ul>
   @foreach ($buys as $buy)
     <!-- <li>{{ $buy->product_code }}</li> -->
-    <li><a href="#">{{ $buy->name }}</a></li>
+    <li><a href="/product/{{ $buy->product_code }}">{{ $buy->name }}</a></li>
   @endforeach
   </ul>
 </div>
