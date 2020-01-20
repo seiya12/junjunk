@@ -59,7 +59,8 @@ class BuyController extends Controller
         $section = 'F';
         $year = str_pad(date('y'), 3, 0, STR_PAD_LEFT);
         $month = strtoupper(dechex(date('n')));
-        $cnt = Transaction::where('Transaction_code', 'LIKE', "$warehouse_code$section$year$month%")->count();
+        $like = $warehouse_code.$section.$year.$month.'%';
+        $cnt = Product::withTrashed()->where('product_code', 'LIKE', $like)->count();
         if ($cnt === 0) {
             $num = str_pad(1, 5, 0, STR_PAD_LEFT);
         } else {
