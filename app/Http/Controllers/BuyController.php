@@ -14,7 +14,7 @@ class BuyController extends Controller
         $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code']);
 
         $user = Product::join('users', 'products.sell_user_code', '=', 'users.user_code')
-            ->where('product_code', $code)->first(['users.account_name', 'products.price', 'postal_code', 'prefectures', 'street_address']);
+            ->where('product_code', $code)->first(['users.name', 'products.price', 'postal_code', 'prefectures', 'street_address','product_code','products.sell_user_code']);
 
         return view('buy', compact('product', 'user'));
     }
@@ -28,6 +28,12 @@ class BuyController extends Controller
             'currency' => 'jpy',
             'source' => $req->stripeToken,
         ));
+
+        // productテーブルから論理削除
+        Product::where('product_code',$req->product_code)->delete();
+
+        // transaction書き込み
+        dd($req->sell_user_code);
 
         return redirect()->route('top');
     }

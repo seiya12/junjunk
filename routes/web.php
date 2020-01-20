@@ -47,6 +47,11 @@ Route::get('category/', function () {
     return view('searchCategory');
 });
 
+// matching
+Route::get('matching/', function () {
+    return view('matching');
+});
+
 // カテゴリー検索結果
 Route::get('category/{code}', 'CategoryController@index');
 

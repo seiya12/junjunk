@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Product;
 use Storage;
+use Auth;
 
 class ProductController extends Controller
 {
     public function index($code)
     {
-        $product = Product::where('product_code', $code)->first();
+        $product = Product::withTrashed()->where('product_code', $code)->first();
 
         $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('products.product_code', $code)->first(['user_code', 'users.account_name', 'prefectures']);
@@ -22,7 +23,7 @@ class ProductController extends Controller
             }
             $cnt++;
         }
-
-        return view('product', compact('product', 'user', 'cnt'));
+        $auth = Auth::user()->user_code;
+        return view('product', compact('product', 'user', 'cnt','auth'));
     }
 }
