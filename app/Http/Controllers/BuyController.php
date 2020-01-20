@@ -34,33 +34,24 @@ class BuyController extends Controller
         ));
 
         // productテーブルから論理削除
-        // Product::where('product_code',$req->product_code)->delete();
-
+        Product::where('product_code',$req->product_code)->delete();
         // transaction書き込み
-        // $sells =  Product::withTrashed()
-        // ->join('users', 'users.user_code', '=', 'products.sell_user_code')
-        // ->where('user_code',$user->user_code)
-        // ->select('product_code','products.name')
-        // ->get();
         $warehouse_code = Warehouse::join('users','users.prefectures','=','warehouses.prefecture')
             ->where('users.user_code',$req->sell_user_code)
             ->select('warehouses.warehouse_code')
             ->get();
-        // $warehouse_code = Warehouse::get();
-        
-        dd($warehouse_code);
-        // $transaction_code =  $this->createTransactionCode($warehouse_code);
-        // $user_code = Auth::user();
-        // Transaction::insert([
-        //     'transaction_code' => $transaction_code,
-        //     'seller_code'      => $req->sell_user_code,
-        //     'buyer_code'       => $user_code,
-        //     'product_code'     => $req->product_code,
-        //     'warehouse_code'   => $warehouse_code,
-        // ]);
+        $transaction_code =  $this->createTransactionCode($warehouse_code[0]->warehouse_code);
+        $user_code = Auth::user()->user_code;
+        Transaction::insert([
+            'transaction_code' => $transaction_code,
+            'seller_code'      => $req->sell_user_code,
+            'buyer_code'       => $user_code,
+            'product_code'     => $req->product_code,
+            'warehouse_code'   => $warehouse_code[0]->warehouse_code,
+        ]);
 
         // transaction番号出力
-        return redirect()->route('top');
+        return view('transaction',compact('transaction_code'));
     }
 
     public function createTransactionCode($warehouse_code)
@@ -68,14 +59,14 @@ class BuyController extends Controller
         $section = 'F';
         $year = str_pad(date('y'), 3, 0, STR_PAD_LEFT);
         $month = strtoupper(dechex(date('n')));
-        $cnt = Product::where('product_code', 'LIKE', "$warehouse_code$section$year$month%")->count();
+        $cnt = Transaction::where('Transaction_code', 'LIKE', "$warehouse_code$section$year$month%")->count();
         if ($cnt === 0) {
             $num = str_pad(1, 5, 0, STR_PAD_LEFT);
         } else {
             $num = str_pad($cnt + 1, 5, 0, STR_PAD_LEFT);
         }
-        $productCode = $category . $section . $year . $month . $num;
+        $transactionCode = $warehouse_code . $section . $year . $month . $num;
 
-        return $productCode;
+        return $transactionCode;
     }
 }
