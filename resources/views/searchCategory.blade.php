@@ -60,7 +60,7 @@
         <li class="category_box">
             <a href="/category/TL">
                 <img src="{{ asset('img/category_tl.jpg') }}" alt="カテゴリー画像">
-                <h3>工具</h3>
+                <h3>工具類</h3>
             </a>
         </li>
         <li class="category_box">
