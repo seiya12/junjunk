@@ -4981,6 +4981,7 @@ return array(
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
     'TransactionsTableSeeder' => $baseDir . '/database/seeds/TransactionsTableSeeder.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
+    'WarehousesTableSeeder' => $baseDir . '/database/seeds/WarehousesTableSeeder.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',

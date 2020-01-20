@@ -42,9 +42,11 @@ class BuyController extends Controller
         // ->where('user_code',$user->user_code)
         // ->select('product_code','products.name')
         // ->get();
-        $warehouse_code = User::join('users.prefecture','=','warehouses','warehouses.prefecture')
-            ->where('users.user_code','=',$req->sell_user_code)
-            ->select('warehouse_code');
+        $warehouse_code = Warehouse::join('users','users.prefectures','=','warehouses.prefecture')
+            ->where('users.user_code',$req->sell_user_code)
+            ->select('warehouses.warehouse_code')
+            ->get();
+        // $warehouse_code = Warehouse::get();
         
         dd($warehouse_code);
         // $transaction_code =  $this->createTransactionCode($warehouse_code);
