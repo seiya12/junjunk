@@ -15,10 +15,9 @@ class BuyController extends Controller
 {
     public function index($code)
     {
-        $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code']);
+        $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code','price']);
 
-        $user = Product::join('users', 'products.sell_user_code', '=', 'users.user_code')
-            ->where('product_code', $code)->first(['users.name', 'products.price', 'postal_code', 'prefectures', 'street_address','product_code','products.sell_user_code']);
+        $user = User::where('user_code', Auth::user()->user_code)->first(['users.name', 'postal_code', 'prefectures', 'street_address']);
 
         return view('buy', compact('product', 'user'));
     }
@@ -60,7 +59,7 @@ class BuyController extends Controller
         $year = str_pad(date('y'), 3, 0, STR_PAD_LEFT);
         $month = strtoupper(dechex(date('n')));
         $like = $warehouse_code.$section.$year.$month.'%';
-        $cnt = Product::withTrashed()->where('product_code', 'LIKE', $like)->count();
+        $cnt = Transaction::where('transaction_code', 'LIKE', $like)->count();
         if ($cnt === 0) {
             $num = str_pad(1, 5, 0, STR_PAD_LEFT);
         } else {
