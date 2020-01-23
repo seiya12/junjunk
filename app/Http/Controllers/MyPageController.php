@@ -24,7 +24,7 @@ class MyPageController extends Controller
         // dd($sell->name);
         $buys =  Transaction::join('products', 'products.product_code', '=', 'transactions.product_code')
             ->where('buyer_code',$user->user_code)
-            ->select('products.product_code','products.name','products.sell_user_code','products.price')
+            ->select('products.product_code','products.name','products.sell_user_code','products.price','transactions.status')
             ->paginate(3, ["*"], 'buys')
             ->appends(["itempage" => Input::get('sells')]);
         return view('mypage', compact('user', 'sells','buys'));

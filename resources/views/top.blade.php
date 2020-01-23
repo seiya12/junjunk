@@ -49,7 +49,7 @@
             @foreach($newPhones as $product)
             <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
             <li>{{ $product['name'] }}</li>
-            <li>{{ number_format($product['price']) }}</li>
+            <li>¥{{ number_format($product['price']) }}</li>
             @endforeach
         </ul>
     </section>
@@ -59,7 +59,7 @@
             @foreach($newPCs as $product)
             <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
             <li>{{ $product['name'] }}</li>
-            <li>{{ number_format($product['price']) }}</li>
+            <li>¥{{ number_format($product['price']) }}</li>
             @endforeach
         </ul>
     </section>
@@ -69,7 +69,7 @@
             @foreach($newGames as $product)
             <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
             <li>{{ $product['name'] }}</li>
-            <li>{{ number_format($product['price']) }}</li>
+            <li>¥{{ number_format($product['price']) }}</li>
             @endforeach
         </ul>
     </section>
@@ -79,7 +79,7 @@
             @foreach($newFurniture as $product)
             <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
             <li>{{ $product['name'] }}</li>
-            <li>{{ number_format($product['price']) }}</li>
+            <li>¥{{ number_format($product['price']) }}</li>
             @endforeach
         </ul>
     </section>
@@ -89,7 +89,7 @@
             @foreach($newWatches as $product)
             <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
             <li>{{ $product['name'] }}</li>
-            <li>{{ number_format($product['price']) }}</li>
+            <li>¥{{ number_format($product['price']) }}</li>
             @endforeach
         </ul>
     </section>
