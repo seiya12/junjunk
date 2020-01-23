@@ -50,7 +50,7 @@
         <table class="table">
             <tr>
                 <th>価格</th>
-                <td>{{ $product['price'] }} (税込)</td>
+                <td>{{ number_format($product['price']) }}</td>
             </tr>
             <tr>
                 <th>出品者</th>
