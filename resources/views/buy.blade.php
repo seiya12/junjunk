@@ -19,10 +19,10 @@
         <p><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <div id="product-inner">
             <p>出品者番号：{{ $product['sell_user_code'] }}</p>
-            <p>金額：¥{{ $product['price'] }}</p>
+            <p>金額：¥{{ number_format($product['price']) }}</p>
         </div>
         <h2>支払い金額</h2>
-        <p>¥{{ $product['price'] }}</p>
+        <p>¥{{ number_format($product['price']) }}</p>
     </section>
     <section id="address">
         <h2>配送先</h2>

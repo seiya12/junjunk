@@ -14,6 +14,44 @@
 @section('content')
 <div id="name">{{ $user->account_name }}</div>
 <div id="cont">
+  <h1>出品した商品</h1>
+  <ul>
+  @foreach ($sells as $sell)
+    <!-- <li>{{ $sell->product_code }}</li> --> 
+    <div class="productBox">
+    <a href="/product/{{ $sell->product_code }}"><li class="productLi">
+      <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $user['user_code'] }}/{{ $sell['product_code'] }}_1.jpg" alt="商品画像">
+      <p>{{ $sell->name }}</p>
+      <p>¥{{ number_format($sell->price) }}</p>
+      @if ($sell->deleted_at == null)
+        <p class="green">出品中</p>
+      @else
+        <p class="red">販売済み</p>
+      @endif
+    </li></a></div>
+  @endforeach
+  </ul>
+  <div class="d-flex justify-content-center">
+    {{ $sells->links() }}
+  </div>
+  <h1>購入した商品</h1>
+  <ul>
+  @foreach ($buys as $buy)
+    <!-- <li>{{ $buy->product_code }}</li> -->
+    <div class="productBox">
+    <a href="/product/{{ $buy->product_code }}"><li class="productLi">
+      <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $buy['sell_user_code'] }}/{{ $buy['product_code'] }}_1.jpg" alt="商品画像">
+      <div class="productCont>">
+        <p>{{ $buy->name }}</p>
+        <p>¥{{ number_format($buy->price) }}</p>
+      </div>
+    </li></a></div>
+  @endforeach
+  </ul>
+  <div class="d-flex justify-content-center">
+    {{ $buys->links() }}
+  </div>
+
   <h1>アカウント設定</h1>
   <form action="#">
     <label>メールアドレス</label>
@@ -30,20 +68,6 @@
     <p><input type="text" name ="street_address" class="form-control" value="{{ $user->street_address }}"></p>
     <a href=""><button type="submit" class="btn btn-danger">変更する</button></a>
   </form>
-  <h1>出品した商品</h1>
-  <ul>
-  @foreach ($sells as $sell)
-    <!-- <li>{{ $sell->product_code }}</li> -->
-    <li><a href="/product/{{ $sell->product_code }}">{{ $sell->name }}</a></li>
-  @endforeach
-  </ul>
-  <h1>購入した商品</h1>
-  <ul>
-  @foreach ($buys as $buy)
-    <!-- <li>{{ $buy->product_code }}</li> -->
-    <li><a href="/product/{{ $buy->product_code }}">{{ $buy->name }}</a></li>
-  @endforeach
-  </ul>
 </div>
 @endsection
 <!-- footer -->
