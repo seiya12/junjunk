@@ -1,7 +1,11 @@
 #categories li a {
     display: flex;
+    text-decoration: none;
 }
-
+#categories {
+    margin-top: -30px;
+    margin-bottom: -48px;
+}
 #categories li img {
     width: 20%;
 }
@@ -16,9 +20,21 @@
     background-color: #fff;
     display: flex;
     padding: 10px 20px;
+    text-align: center;
     border-bottom: 1px solid #ddd;
     -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
     align-items: center; /* 縦方向中央揃え */
+}
+.category_box:last-child{
+    border-bottom: 0;
+}
+.category_box h3{
+    color: #555;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    line-height: 64px;
 }
 h1 {
     font-weight: bold;
