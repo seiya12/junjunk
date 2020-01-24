@@ -31,22 +31,23 @@
   text-align: right;
   padding-right : 20px;
   overflow: hidden;
-  vertical-align: middle;
-  padding-top: 10px;
+  position: relative;
 }
 .productCont p {
   padding-left: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 25px;
+  line-height: 20px;
+  margin-bottom: 2px;
 }
 .productBox a{
   color: #555;
   text-decoration: none;
 }
 .productBox img{
-  width: 30%;
+  width: 35%;
+  height: 35%;
   margin-left: 20px;
 }
 .productLi p{
@@ -79,4 +80,9 @@ form label {
 .green{
   color: #47ff47;
   font-weight: bold;
+}
+.transaction {
+  position: absolute;
+  bottom: 0;
+  color: #777;
 }
