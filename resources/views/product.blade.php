@@ -50,7 +50,7 @@
         <table class="table">
             <tr>
                 <th>価格</th>
-                <td>{{ number_format($product['price']) }}</td>
+                <td>￥{{ number_format($product['price']) }}</td>
             </tr>
             <tr>
                 <th>出品者</th>
@@ -69,15 +69,15 @@
                 <td>{{ $product['estimate'] }}</td>
             </tr>
         </table>
-        <p>{{ $product['price'] }} (税込み)</p>
+        <p class="price">￥{{ $product['price'] }} (税込み)</p>
         <!-- <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a> -->
     </section>
     <section>
         <p>{{ $product['description'] }}</p>
         @if ($auth == $user['user_code'])
-        <p>自身の出品した商品です</p>
+        <p id="own">自身の出品した商品です</p>
         @elseif ($product['deleted_at'] != null)
-        <p>終了した出品です</p>
+        <p id="fin">終了した出品です</p>
         @else
         <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
         @endif
