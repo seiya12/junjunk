@@ -23,12 +23,32 @@
   display: flex;
   justify-content: space-between;
 }
+.productBox:first-child{
+  border-top: 1px solid #999;
+}
+.productCont{
+  width: 100%;
+  text-align: right;
+  padding-right : 20px;
+  overflow: hidden;
+  position: relative;
+}
+.productCont p {
+  padding-left: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-bottom: 2px;
+}
 .productBox a{
   color: #555;
   text-decoration: none;
 }
 .productBox img{
-  width: 30%;
+  width: 35%;
+  height: 35%;
+  margin-left: 20px;
 }
 .productLi p{
   font-size: 0.9em;
@@ -54,8 +74,15 @@ form label {
   font-weight: bold;
 }
 .red{
-  color: #ff7f7f;
+  color: #ff4747;
+  font-weight: bold;
 }
 .green{
-  color: #7fff7f;
+  color: #47ff47;
+  font-weight: bold;
+}
+.transaction {
+  position: absolute;
+  bottom: 0;
+  color: #777;
 }

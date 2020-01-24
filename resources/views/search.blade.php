@@ -75,7 +75,7 @@
     <a href="/product/{{ $product['product_code'] }}" class="product">
         <p><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
         <p>{{ $product['name'] }}</p>
-        <p>{{ number_format($product['price']) }}</p>
+        <p>¥{{ number_format($product['price']) }}</p>
     </a>
     @endforeach
 </article>
