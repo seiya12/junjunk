@@ -31,6 +31,7 @@
   text-align: right;
   padding-right : 20px;
   overflow: hidden;
+  position: relative;
 }
 .productCont p {
   padding-left: 30px;
@@ -38,6 +39,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 20px;
+  margin-bottom: 2px;
 }
 .productBox a{
   color: #555;
@@ -78,4 +80,9 @@ form label {
 .green{
   color: #47ff47;
   font-weight: bold;
+}
+.transaction {
+  position: absolute;
+  bottom: 0;
+  color: #777;
 }

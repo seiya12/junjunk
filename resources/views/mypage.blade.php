@@ -30,7 +30,16 @@
             @else
               <p class="red">販売済み</p>
             @endif
-            <p>{{ $sell->transaction_code }}</p>
+            @if ($sell->status == 1)
+              <p class="green">発送待ち</p>
+              <p class="transaction">ID:{{ $sell->transaction_code }}</p>
+            @elseif ($sell->status == 2)
+              <p class="red">取引完了</p>
+              <p class="transaction">ID:{{ $sell->transaction_code }}</p>
+            @else
+              <br><br>
+            @endif
+            <!-- <p>{{ $sell->transaction_code }}</p> -->
           </div>
         </li>
       </a>
@@ -48,13 +57,14 @@
     <a href="/product/{{ $buy->product_code }}"><li class="productLi">
       <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $buy['sell_user_code'] }}/{{ $buy['product_code'] }}_1.jpg" alt="商品画像">
       <div class="productCont">
-        <p>{{ $buy->name }}</p><br>
-        <p>¥{{ number_format($buy->price) }}</p><br>
+        <p>{{ $buy->name }}</p>
+        <p>¥{{ number_format($buy->price) }}</p>
         @if ($buy->status == 1)
           <p class="green">発送待ち</p>
         @else
           <p class="red">取引完了</p>
         @endif
+        <p class="transaction">ID:{{ $buy->transaction_code }}</p>
       </div>
     </li></a></div>
   @endforeach
