@@ -1,6 +1,45 @@
-.carousel-item{
+.carousel-item {
     text-align: center;
 }
 .carousel {
-    background-color: #ddd;
+    background-color: rgba(180, 215, 255, 0.6);
+}
+.carousel-item {
+    height: 300px;
+}
+#title {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+th {
+    background-color: rgb(223, 223, 223);
+}
+
+.table {
+    border-bottom: solid 1px #ddd;
+}
+
+p {
+    margin: 15px;
+}
+.price {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#own {
+    color: rgb(255, 215, 83);
+    padding-bottom: 1px;
+    border-bottom: blue;
+}
+#fin {
+    color: crimson;
+    border-bottom: crimson;
+}
+section .btn {
+    margin-left: 35%;
+    padding: 10px 25px;
 }
