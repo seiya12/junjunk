@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         $product = Product::withTrashed()->where('product_code', $code)->first();
 
-        $user = Product::join('users', 'users.user_code', '=', 'products.sell_user_code')
+        $user = Product::withTrashed()->join('users', 'users.user_code', '=', 'products.sell_user_code')
             ->where('products.product_code', $code)->first(['user_code', 'users.account_name', 'prefectures']);
 
         $cnt = 0;

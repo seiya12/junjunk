@@ -15,10 +15,9 @@ class BuyController extends Controller
 {
     public function index($code)
     {
-        $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code']);
+        $product = Product::where('product_code', $code)->first(['product_code', 'sell_user_code','price']);
 
-        $user = Product::join('users', 'products.sell_user_code', '=', 'users.user_code')
-            ->where('product_code', $code)->first(['users.name', 'products.price', 'postal_code', 'prefectures', 'street_address','product_code','products.sell_user_code']);
+        $user = User::where('user_code', Auth::user()->user_code)->first(['users.name', 'postal_code', 'prefectures', 'street_address']);
 
         return view('buy', compact('product', 'user'));
     }
@@ -34,31 +33,24 @@ class BuyController extends Controller
         ));
 
         // productテーブルから論理削除
-        // Product::where('product_code',$req->product_code)->delete();
-
+        Product::where('product_code',$req->product_code)->delete();
         // transaction書き込み
-        // $sells =  Product::withTrashed()
-        // ->join('users', 'users.user_code', '=', 'products.sell_user_code')
-        // ->where('user_code',$user->user_code)
-        // ->select('product_code','products.name')
-        // ->get();
-        $warehouse_code = User::join('users.prefecture','=','warehouses','warehouses.prefecture')
-            ->where('users.user_code','=',$req->sell_user_code)
-            ->select('warehouse_code');
-        
-        dd($warehouse_code);
-        // $transaction_code =  $this->createTransactionCode($warehouse_code);
-        // $user_code = Auth::user();
-        // Transaction::insert([
-        //     'transaction_code' => $transaction_code,
-        //     'seller_code'      => $req->sell_user_code,
-        //     'buyer_code'       => $user_code,
-        //     'product_code'     => $req->product_code,
-        //     'warehouse_code'   => $warehouse_code,
-        // ]);
+        $warehouse_code = Warehouse::join('users','users.prefectures','=','warehouses.prefecture')
+            ->where('users.user_code',$req->sell_user_code)
+            ->select('warehouses.warehouse_code')
+            ->get();
+        $transaction_code =  $this->createTransactionCode($warehouse_code[0]->warehouse_code);
+        $user_code = Auth::user()->user_code;
+        Transaction::insert([
+            'transaction_code' => $transaction_code,
+            'seller_code'      => $req->sell_user_code,
+            'buyer_code'       => $user_code,
+            'product_code'     => $req->product_code,
+            'warehouse_code'   => $warehouse_code[0]->warehouse_code,
+        ]);
 
         // transaction番号出力
-        return redirect()->route('top');
+        return view('transaction',compact('transaction_code'));
     }
 
     public function createTransactionCode($warehouse_code)
@@ -66,14 +58,15 @@ class BuyController extends Controller
         $section = 'F';
         $year = str_pad(date('y'), 3, 0, STR_PAD_LEFT);
         $month = strtoupper(dechex(date('n')));
-        $cnt = Product::where('product_code', 'LIKE', "$warehouse_code$section$year$month%")->count();
+        $like = $warehouse_code.$section.$year.$month.'%';
+        $cnt = Transaction::where('transaction_code', 'LIKE', $like)->count();
         if ($cnt === 0) {
             $num = str_pad(1, 5, 0, STR_PAD_LEFT);
         } else {
             $num = str_pad($cnt + 1, 5, 0, STR_PAD_LEFT);
         }
-        $productCode = $category . $section . $year . $month . $num;
+        $transactionCode = $warehouse_code . $section . $year . $month . $num;
 
-        return $productCode;
+        return $transactionCode;
     }
 }
