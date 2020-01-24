@@ -47,7 +47,6 @@
 }
 .productBox img{
   width: 30%;
-  height: 50px;
   margin-left: 20px;
 }
 .productLi p{
@@ -75,7 +74,9 @@ form label {
 }
 .red{
   color: #ff4747;
+  font-weight: bold;
 }
 .green{
   color: #47ff47;
+  font-weight: bold;
 }
