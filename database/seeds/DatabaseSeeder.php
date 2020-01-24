@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             TransactionsTableSeeder::class,
             CategoryCorrespondTableSeeder::class,
             CategoryHistoriesTableSeeder::class,
-            ProductsTableSeeder::class,
             WarehousesTableSeeder::class,
         ]);
     }

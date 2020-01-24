@@ -21,13 +21,15 @@
     <div class="productBox">
     <a href="/product/{{ $sell->product_code }}"><li class="productLi">
       <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $user['user_code'] }}/{{ $sell['product_code'] }}_1.jpg" alt="商品画像">
-      <p>{{ $sell->name }}</p>
-      <p>¥{{ number_format($sell->price) }}</p>
-      @if ($sell->deleted_at == null)
-        <p class="green">出品中</p>
-      @else
-        <p class="red">販売済み</p>
-      @endif
+      <div class ="productCont">
+        <p>{{ $sell->name }}</p><br>
+        <p>¥{{ number_format($sell->price) }}</p><br>
+        @if ($sell->deleted_at == null)
+          <p class="green">出品中</p>
+        @else
+          <p class="red">販売済み</p>
+        @endif
+      </div>
     </li></a></div>
   @endforeach
   </ul>
@@ -41,9 +43,14 @@
     <div class="productBox">
     <a href="/product/{{ $buy->product_code }}"><li class="productLi">
       <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $buy['sell_user_code'] }}/{{ $buy['product_code'] }}_1.jpg" alt="商品画像">
-      <div class="productCont>">
-        <p>{{ $buy->name }}</p>
-        <p>¥{{ number_format($buy->price) }}</p>
+      <div class="productCont">
+        <p>{{ $buy->name }}</p><br>
+        <p>¥{{ number_format($buy->price) }}</p><br>
+        @if ($buy->status == 1)
+          <p class="green">発送待ち</p>
+        @else
+          <p class="red">取引完了</p>
+        @endif
       </div>
     </li></a></div>
   @endforeach
