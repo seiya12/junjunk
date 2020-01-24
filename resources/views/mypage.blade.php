@@ -19,18 +19,22 @@
   @foreach ($sells as $sell)
     <!-- <li>{{ $sell->product_code }}</li> --> 
     <div class="productBox">
-    <a href="/product/{{ $sell->product_code }}"><li class="productLi">
-      <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $user['user_code'] }}/{{ $sell['product_code'] }}_1.jpg" alt="商品画像">
-      <div class ="productCont">
-        <p>{{ $sell->name }}</p><br>
-        <p>¥{{ number_format($sell->price) }}</p><br>
-        @if ($sell->deleted_at == null)
-          <p class="green">出品中</p>
-        @else
-          <p class="red">販売済み</p>
-        @endif
-      </div>
-    </li></a></div>
+      <a href="/product/{{ $sell->product_code }}">
+        <li class="productLi">
+          <img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $user['user_code'] }}/{{ $sell['product_code'] }}_1.jpg" alt="商品画像">
+          <div class ="productCont">
+            <p>{{ $sell->name }}</p>
+            <p>¥{{ number_format($sell->price) }}</p>
+            @if ($sell->deleted_at == null)
+              <p class="green">出品中</p>
+            @else
+              <p class="red">販売済み</p>
+            @endif
+            <p>{{ $sell->transaction_code }}</p>
+          </div>
+        </li>
+      </a>
+    </div>
   @endforeach
   </ul>
   <div class="d-flex justify-content-center">
@@ -69,7 +73,7 @@
     <p><input type="text" name ="name" class="form-control" value="{{ $user->name }}"></p>
     <label>郵便番号</label>
     <p><input type="text" name ="postal_code" class="form-control" value="{{ $user->postal_code }}"></p>
-    <label>県</label>
+    <label>都道府県</label>
     <p><input type="text" name ="prefectures" class="form-control" value="{{ $user->prefectures }}"></p>
     <label>住所</label>
     <p><input type="text" name ="street_address" class="form-control" value="{{ $user->street_address }}"></p>
