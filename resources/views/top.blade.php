@@ -76,6 +76,7 @@
               <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
               <li class="height">{{ $product['name'] }}</li>
               <li class="price">¥{{ number_format($product['price']) }}</li>
+              <li class="method">フリマ</li>
             </div><!-- new_item -->
           @endforeach
         </ul>
