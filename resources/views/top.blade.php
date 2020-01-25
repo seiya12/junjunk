@@ -50,8 +50,8 @@
             @foreach($newPhones as $product)
               <div class="new_item">
                 <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-                <li>{{ $product['name'] }}</li>
-                <li>¥{{ number_format($product['price']) }}</li>
+                <li class="height">{{ $product['name'] }}</li>
+                <li class="price">¥{{ number_format($product['price']) }}</li>
             </div>
             @endforeach
         </ul>
@@ -62,8 +62,8 @@
             @foreach($newPCs as $product)
             <div class="new_item">
               <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-              <li>{{ $product['name'] }}</li>
-              <li>¥{{ number_format($product['price']) }}</li>
+              <li class="height">{{ $product['name'] }}</li>
+              <li class="price">¥{{ number_format($product['price']) }}</li>
             </div>
             @endforeach
         </ul>
@@ -86,8 +86,8 @@
               @foreach($newFurniture as $product)
               <div class="new_item">
                 <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-                <li>{{ $product['name'] }}</li>
-                <li>¥{{ number_format($product['price']) }}</li>
+                <li class="height">{{ $product['name'] }}</li>
+                <li class="price">¥{{ number_format($product['price']) }}</li>
               </div>
               @endforeach
         </ul>
@@ -98,8 +98,8 @@
             @foreach($newWatches as $product)
             <div class="new_item">
               <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-              <li>{{ $product['name'] }}</li>
-              <li>¥{{ number_format($product['price']) }}</li>
+              <li class="height">{{ $product['name'] }}</li>
+              <li class="price">¥{{ number_format($product['price']) }}</li>
             </div>
             @endforeach
         </ul>
