@@ -21,8 +21,8 @@
             <p>出品者番号：{{ $product['sell_user_code'] }}</p>
             <p>金額：¥{{ number_format($product['price']) }}</p>
         </div>
-        <h2>支払い金額</h2>
-        <p>¥{{ number_format($product['price']) }}</p>
+        <h2>支払い金額 (手数料込み)</h2>
+        <p>¥{{ number_format(floor($product['price']*1.1)) }}</p>
     </section>
     <section id="address">
         <h2>配送先</h2>
@@ -35,7 +35,7 @@
         <input type="hidden" name="amount" id="amount" value="{{ $product['price'] }}">
         <input type="hidden" name="product_code" id="product_code" value="{{ $product['product_code'] }}">
         <input type="hidden" name="sell_user_code" id="sell_user_code" value="{{ $product['sell_user_code'] }}">
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="{{ $product['price'] }}" data-name="ジャン×ジャンク決済" data-label="購入する" data-description="ジャン×ジャンク" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="{{ $product['price']*1.1 }}" data-name="ジャン×ジャンク決済" data-label="購入する" data-description="ジャン×ジャンク" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
         </script>
     </form>
 </article>

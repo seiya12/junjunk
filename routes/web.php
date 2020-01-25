@@ -58,6 +58,9 @@ Route::get('category/{code}', 'CategoryController@index');
 // 商品検索
 Route::get('search', 'SearchController@search');
 
+// 商品検索
+Route::get('admin', 'AdminController@index');
+
 // 商品詳細
 Route::get('product/{code}', 'ProductController@index');
 

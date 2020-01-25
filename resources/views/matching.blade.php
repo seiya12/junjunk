@@ -13,6 +13,10 @@
 <!-- content -->
 @section('content')
 <h1 id="title">ジャン×ジャンマッチング</h1>
+<article>
+    <h2>ジャン×ジャンマッチングは</h2>
+    <h3>現在開発中です</h3>
+</article>
 @endsection
 
 <!-- footer -->

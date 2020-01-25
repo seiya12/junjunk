@@ -93,7 +93,7 @@
                 <td>{{ $product['estimate'] }}</td>
             </tr>
         </table>
-        <p class="price">￥{{ $product['price'] }} (税込み)</p>
+        <p class="price">￥{{ number_format(floor($product['price']*1.1)) }} (手数料込み)</p>
     </section>
     <section>
         <p>{{ $product['description'] }}</p>
