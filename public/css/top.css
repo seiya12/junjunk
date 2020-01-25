@@ -26,7 +26,31 @@ h2 {
 .new {
     background-color: #ddd;
 }
-
+.new_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .new img{
-    width: 25%;
+    width: 100%;
+}
+.new_item {
+  background-color: #fff;
+  margin-top: 3%;
+  width: 30%;
+  position: relative;
+}
+.new_item .height {
+  height: 2em;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+}
+.new_item .price {
+  background-color: #ff0;
+  position: absolute;
+    top: 68%;
+    left: 0;
+  opacity: .75;
 }
