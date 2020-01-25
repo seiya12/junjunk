@@ -60,6 +60,7 @@ class SellController extends Controller
             'estimate'       => $req->estimate,
             'sell_type'      => 'F',
             'end_date'       => new DateTime(),
+            'created_at' => now(),
         ]);
 
 

@@ -47,6 +47,8 @@ class BuyController extends Controller
             'buyer_code'       => $user_code,
             'product_code'     => $req->product_code,
             'warehouse_code'   => $warehouse_code[0]->warehouse_code,
+            'profit'           => $req->amount * 0.1,
+            'created_at' => now(),
         ]);
 
         // transaction番号出力

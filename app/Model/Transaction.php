@@ -12,6 +12,7 @@ class Transaction extends Model
         'buyer_code',
         'product_code',
         'warehouse_code',
+        'profit',
         'status',
         'cancel_flg',
     ];
