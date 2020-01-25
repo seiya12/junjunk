@@ -1,13 +1,43 @@
 article img{
-    width: 40%;
+    width: 100%;
 }
 #title {
-    margin: 30px 0;
-    padding-bottom: 30px;
+    margin-bottom:  10px;
+    padding: 20px 0;
     font-size: 20px;
     text-align: center;
     border-bottom: solid 1px #ddd;
 }
 #not-found{
     text-align: center;
+}
+
+article{
+  background-color: #e6e6e6;
+  padding-bottom: 3%;
+}
+.category_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.category_item {
+  background-color: #fff;
+  margin-top: 3%;
+  width: 30%;
+  position: relative;
+}
+.category_item .height {
+  height: 2em;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+}
+.category_item .price {
+  background-color: #ff0;
+  position: absolute;
+    top: 68%;
+    left: 0;
+  opacity: .75;
 }

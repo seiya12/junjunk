@@ -17,13 +17,17 @@
     @if($products->isEmpty())
     <p id="not-found">商品が見つかりません</p>
     @endif
-    @foreach($products as $product)
-    <a href="/product/{{ $product['product_code'] }}">
-        <p><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></p>
-        <p>{{ $product['name'] }}</p>
-        <p>¥{{ number_format($product['price']) }}</p>
-    </a>
-    @endforeach
+    <ul class="category_flex">
+      @foreach($products as $product)
+      <div class="category_item">
+        <a href="/product/{{ $product['product_code'] }}">
+            <li><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></li>
+            <li class="height">{{ $product['name'] }}</li>
+            <li class="price">¥{{ number_format($product['price']) }}</li>
+        </a>
+      </div><!-- category_item -->
+      @endforeach
+    </ul><!-- category_flex -->
 </article>
 @endsection
 
