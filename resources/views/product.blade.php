@@ -50,7 +50,19 @@
         <table class="table">
             <tr>
                 <th>価格</th>
-                <td>￥{{ number_format($product['price']) }}</td>
+                <td>¥{{ number_format($product['price']) }}</td>
+            </tr>
+            <tr>
+                <th>出品タイプ</th>
+                <td>
+                    @if ($product['sell_type'] == 'F')
+                    フリマ出品
+                    @elseif ($product['sell_type'] == 'O')
+                    オークション出品
+                    @else
+                    リクエスト出品
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>出品者</th>
@@ -59,6 +71,18 @@
             <tr>
                 <th>カテゴリー</th>
                 <td>{{ $product['category'] }}</td>
+            </tr>
+            <tr>
+                <th>状態</th>
+                @if ($status->isEmpty())
+                    <td>特になし</td>
+                @else
+                    <td>
+                        @foreach ($status as $stat)
+                            {{ $stat->status }} 
+                        @endforeach
+                    </td>
+                @endif
             </tr>
             <tr>
                 <th>配送元地域</th>
@@ -70,7 +94,6 @@
             </tr>
         </table>
         <p class="price">￥{{ $product['price'] }} (税込み)</p>
-        <!-- <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a> -->
     </section>
     <section>
         <p>{{ $product['description'] }}</p>

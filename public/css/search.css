@@ -29,6 +29,10 @@
     width: 100%;
 }
 
+.dropdown-item{
+    padding: 20px;
+}
+
 #modal {
     width: 40%;
     margin: 20px;
