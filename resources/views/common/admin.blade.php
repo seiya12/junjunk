@@ -17,7 +17,7 @@
     <nav>
         <ul class="d-flex justify-content-around">
             <li><a href="/admin" class="text-decoration-none"><img src="{{asset('img/menu.svg')}}" alt="category" class="align-middle mr-1"><span class="text-dark align-middle">営業成績</span></a></li>
-            <li><a href="/matching" class="text-decoration-none"><img src="{{asset('img/local_offer.svg')}}" alt="tag" class="align-middle mr-1"><span class="text-dark align-middle">マッチングサービス</span></a></li>
+            
         </ul>
     </nav>
 </header>

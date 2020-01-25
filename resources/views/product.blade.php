@@ -100,7 +100,7 @@
         @if ($auth == $user['user_code'])
         <p id="own">自身の出品した商品です</p>
         @elseif ($product['deleted_at'] != null)
-        <p id="fin">終了した出品です</p>
+        <p id="fin">すでに購入された出品です</p>
         @else
         <a href="{{ url('/buy/')}}/{{ $product['product_code'] }}"><button type="button" class="btn btn-danger">購入画面へ進む</button></a>
         @endif
