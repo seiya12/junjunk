@@ -81,7 +81,7 @@
 }
 
 article {
-  background-color: #e6e6e6;
+  background-color: #f6f6f6;
   padding-bottom: 3%;
 }
 
@@ -95,21 +95,34 @@ article {
   background-color: #fff;
   margin-top: 3%;
   position: relative;
-  width: 30%;
+  width: 31%;
 }
 
 .search_item .height {
-  height: 2em;
+  line-height: 1.5em;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* white-space: nowrap; */
+  white-space: nowrap;
 }
 
 .search_item .price {
-  background-color: #ff0;
+  background-color: #111;
+  border-radius: 75% 0 75% 0;
+  color: #fff;
   position: absolute;
-    top: 68%;
+    top: 65%;
     left: 0;
-  opacity: .75;
+  opacity: .35;
+  padding: 3% 8% 3% 3%;
+}
+.search_item .method {
+  background-color: #00bfff;
+  border-radius: 0 0 0 20%;
+  color: #fff;
+  position: absolute;
+    top: 0;
+    right: 0;
+  opacity: 0.75;
+  padding: 3% 3% 3% 8%;
 }
