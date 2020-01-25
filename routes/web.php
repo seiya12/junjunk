@@ -60,6 +60,7 @@ Route::get('search', 'SearchController@search');
 
 // 商品検索
 Route::get('admin', 'AdminController@index');
+Route::get('admin/search', 'AdminController@search');
 
 // 商品詳細
 Route::get('product/{code}', 'ProductController@index');
