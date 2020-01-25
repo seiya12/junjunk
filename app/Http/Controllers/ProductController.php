@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Product;
+use App\Model\ProductsStatus;
 use Storage;
 use Auth;
 
@@ -14,7 +15,12 @@ class ProductController extends Controller
         $product = Product::withTrashed()->where('product_code', $code)->first();
 
         $user = Product::withTrashed()->join('users', 'users.user_code', '=', 'products.sell_user_code')
-            ->where('products.product_code', $code)->first(['user_code', 'users.account_name', 'prefectures']);
+            ->where('products.product_code', $code)->first(['user_code', 'users.account_name', 'prefectures','sell_type']);
+
+        $status = ProductsStatus::join('products', 'products.product_code', '=', 'products_status.product_code')
+        ->where('products.product_code', $code)
+        ->select('status')
+        ->get();
 
         $cnt = 0;
         for ($i = 1; $i <= 10; $i++) {
@@ -24,6 +30,6 @@ class ProductController extends Controller
             $cnt++;
         }
         $auth = Auth::user()->user_code;
-        return view('product', compact('product', 'user', 'cnt','auth'));
+        return view('product', compact('product', 'user', 'cnt','auth','status'));
     }
 }

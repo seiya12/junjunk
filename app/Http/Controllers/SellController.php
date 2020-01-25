@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Product;
+use App\Model\ProductsStatus;
 use App\Model\ImageUrl;
 use DateTime;
 use Storage;
@@ -60,6 +61,16 @@ class SellController extends Controller
             'sell_type'      => 'F',
             'end_date'       => new DateTime(),
         ]);
+
+
+        if (!empty($req->status)){
+            foreach ($req->status as $status){
+                ProductsStatus::insert([
+                    'product_code'   => $productCode,
+                    'status'         => $status,
+                ]);
+            }
+        }
 
         return redirect()->route('top');
     }

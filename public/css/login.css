@@ -58,3 +58,7 @@
 .fa {
     float: left;
 }
+#signup-btn{
+    position: relative;
+    top: 10px;
+}

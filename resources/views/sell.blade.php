@@ -56,6 +56,14 @@
         </select>
     </p>
 
+    <label>状態</label>
+    <p>
+        <input type="checkbox" name="status[]" value="破損">破損
+        <input type="checkbox" name="status[]" value="水没">水没
+        <input type="checkbox" name="status[]" value="画面割れ">画面割れ
+        <input type="checkbox" name="status[]" value="部品欠損">部品欠損
+    </p>
+
     @if($errors)
     <p id="error">{{$errors->first('estimate')}}</p>
     @endif
@@ -66,6 +74,16 @@
             <option value="1~2">1~2日で発送</option>
             <option value="2~3">2~3で発送</option>
             <option value="4~7">4~7日で発送</option>
+        </select>
+    </p>
+
+    <label>出品・リクエストモード</label>
+    <p>
+        <select name="mode">
+            <option value="">-</option>
+            <option value="F">フリマ出品</option>
+            <option value="O">オークション出品</option>
+            <option value="R">修理リクエスト</option>
         </select>
     </p>
 
