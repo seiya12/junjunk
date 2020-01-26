@@ -8,7 +8,7 @@
     </div>
     <form action="/admin/search" method="get">
         <div class="input-group mb-2">
-            <input type="search" class="form-control bg-light" placeholder="取引IDを入力" name="keyword">
+            <input type="search" class="form-control bg-light" placeholder="取引IDを入力" name="keyword" value="OSKF020100001">
             <div class="input-group-append">
                 <button type="submit" class="btn btn-outline-secondary">検索</button>
             </div>

@@ -13,12 +13,13 @@
 }
 #product-inner{
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 #product-inner p{
     margin-bottom: 10px;
 }
 h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: bold;
 }
 #address{

@@ -60,7 +60,7 @@
     <p>
         <input type="checkbox" name="status[]" value="破損">破損
         <input type="checkbox" name="status[]" value="水没">水没
-        <input type="checkbox" name="status[]" value="画面割れ">画面割れ
+        <input type="checkbox" name="status[]" value="動作不良">動作不良
         <input type="checkbox" name="status[]" value="部品欠損">部品欠損
     </p>
 

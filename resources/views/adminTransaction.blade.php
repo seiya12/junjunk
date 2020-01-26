@@ -45,8 +45,6 @@
           @if ($transaction->status == 1)
             発送待ち
           @elseif ($transaction->status == 2)
-            検品待ち
-          @else 
             検品済み
           @endif
         </td>

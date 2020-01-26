@@ -47,7 +47,7 @@
         </div>
     </section>
     <section>
-        <table class="table">
+        <table class="table table-bordered">
             <tr>
                 <th>価格</th>
                 <td>¥{{ number_format($product['price']) }}</td>
@@ -96,7 +96,7 @@
         <p class="price">￥{{ number_format(floor($product['price']*1.1)) }} (手数料込み)</p>
     </section>
     <section>
-        <p>{{ $product['description'] }}</p>
+        <p id="desc">{{ $product['description'] }}</p>
         @if ($auth == $user['user_code'])
         <p id="own">自身の出品した商品です</p>
         @elseif ($product['deleted_at'] != null)
