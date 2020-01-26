@@ -11,11 +11,11 @@ class TopController extends Controller
     public function index()
     {
         // 新着商品の取得
-        $newPhones = Product::where('category', 'MP')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price']);
-        $newPCs = Product::where('category', 'PC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price']);
-        $newGames = Product::where('category', 'GM')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price']);
-        $newFurniture = Product::where('category', 'FT')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price']);
-        $newWatches = Product::where('category', 'WC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price']);
+        $newPhones = Product::where('category', 'MP')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price','sell_type']);
+        $newPCs = Product::where('category', 'PC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price','sell_type']);
+        $newGames = Product::where('category', 'GM')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price','sell_type']);
+        $newFurniture = Product::where('category', 'FT')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price','sell_type']);
+        $newWatches = Product::where('category', 'WC')->orderBy('created_at', 'desc')->limit(8)->get(['product_code', 'name', 'sell_user_code','price','sell_type']);
 
         $popularItems = CategoryHistory::join('category_corresponds', 'code', '=', 'category_histories.category')
             ->orderBy('category_histories.count', 'desc')->limit(6)

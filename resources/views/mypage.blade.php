@@ -12,7 +12,7 @@
 
 <!-- content -->
 @section('content')
-<div id="name">{{ $user->account_name }}</div>
+<div id="name">{{ $user->account_name }}さんのマイページ</div>
 <div id="cont">
   <h1>出品した商品</h1>
   <ul>

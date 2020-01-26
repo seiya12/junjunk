@@ -10,6 +10,7 @@
 }
 #not-found{
     text-align: center;
+    font-size: 2em;
 }
 .product img {
     width: 100%;
@@ -81,7 +82,7 @@
 }
 
 article {
-  background-color: #e6e6e6;
+  background-color: #fff;
   padding-bottom: 3%;
 }
 
@@ -92,24 +93,49 @@ article {
 }
 
 .search_item {
-  background-color: #fff;
-  margin-top: 3%;
-  position: relative;
-  width: 30%;
+    background-color: #eee;
+    margin-top: 3%;
+    width: 32%;
+    position: relative;
+    border: solid 5px #eee;
 }
 
 .search_item .height {
-  height: 2em;
-  word-wrap: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* white-space: nowrap; */
+    line-height: 1.5em;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 24px;
 }
 
 .search_item .price {
-  background-color: #ff0;
-  position: absolute;
-    top: 68%;
-    left: 0;
-  opacity: .75;
+    background-color: #ff7f50;
+    border-radius: 50% 50% 50% 50%;
+    color: #fff;
+    position: absolute;
+      bottom: 27px;
+      left: 0;
+    opacity: 0.9;
+    padding: 5% 5% 5% 5%;
+}
+.search_item .method {
+    background-color: #00bfff;
+    border-radius: 0 0 0 25%;
+    color: #fff;
+    position: absolute;
+        top: 0;
+        right: 0;
+    opacity: 0.9;
+    padding: 5% 5% 5% 5%;
+}
+.search_item .method2 {
+    background-color: #ff0040;
+    border-radius: 0 0 0 25%;
+    color: #fff;
+    position: absolute;
+        top: 0;
+        right: 0;
+    opacity: 0.9;
+    padding: 5% 5% 5% 5%;
 }

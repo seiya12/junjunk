@@ -45,13 +45,18 @@
     </section">
 
     <section class="new">
-        <h2>スマホ新着</h2>
+        <h2>携帯電話新着</h2>
         <ul class="new_flex">
             @foreach($newPhones as $product)
               <div class="new_item">
                 <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
                 <li class="height">{{ $product['name'] }}</li>
                 <li class="price">¥{{ number_format($product['price']) }}</li>
+                @if ($product['sell_type'] == 'F')
+                <li class="method">フリマ</li>
+                @elseif ($product['sell_type'] == 'O')
+                <li class="method2">オークション</li>
+                @endif
             </div>
             @endforeach
         </ul>
@@ -61,9 +66,14 @@
         <ul class="new_flex">
             @foreach($newPCs as $product)
             <div class="new_item">
-              <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-              <li class="height">{{ $product['name'] }}</li>
-              <li class="price">¥{{ number_format($product['price']) }}</li>
+                <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
+                <li class="height">{{ $product['name'] }}</li>
+                <li class="price">¥{{ number_format($product['price']) }}</li>
+                @if ($product['sell_type'] == 'F')
+                <li class="method">フリマ</li>
+                @elseif ($product['sell_type'] == 'O')
+                <li class="method2">オークション</li>
+                @endif
             </div>
             @endforeach
         </ul>
@@ -73,10 +83,14 @@
         <ul class="new_flex">
           @foreach($newGames as $product)
             <div class="new_item">
-              <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-              <li class="height">{{ $product['name'] }}</li>
-              <li class="price">¥{{ number_format($product['price']) }}</li>
-              <li class="method">フリマ</li>
+                <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
+                <li class="height">{{ $product['name'] }}</li>
+                <li class="price">¥{{ number_format($product['price']) }}</li>
+                @if ($product['sell_type'] == 'F')
+                <li class="method">フリマ</li>
+                @elseif ($product['sell_type'] == 'O')
+                <li class="method2">オークション</li>
+                @endif
             </div><!-- new_item -->
           @endforeach
         </ul>
@@ -89,6 +103,11 @@
                 <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
                 <li class="height">{{ $product['name'] }}</li>
                 <li class="price">¥{{ number_format($product['price']) }}</li>
+                @if ($product['sell_type'] == 'F')
+                <li class="method">フリマ</li>
+                @elseif ($product['sell_type'] == 'O')
+                <li class="method2">オークション</li>
+                @endif
               </div>
               @endforeach
         </ul>
@@ -98,9 +117,14 @@
         <ul class="new_flex">
             @foreach($newWatches as $product)
             <div class="new_item">
-              <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
-              <li class="height">{{ $product['name'] }}</li>
-              <li class="price">¥{{ number_format($product['price']) }}</li>
+                <li><a href="/product/{{ $product['product_code'] }}"><img src="https://junjunk.s3-ap-northeast-1.amazonaws.com/{{ $product['sell_user_code'] }}/{{ $product['product_code'] }}_1.jpg" alt="商品画像"></a></li>
+                <li class="height">{{ $product['name'] }}</li>
+                <li class="price">¥{{ number_format($product['price']) }}</li>
+                @if ($product['sell_type'] == 'F')
+                <li class="method">フリマ</li>
+                @elseif ($product['sell_type'] == 'O')
+                <li class="method2">オークション</li>
+                @endif
             </div>
             @endforeach
         </ul>

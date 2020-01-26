@@ -72,7 +72,7 @@
         <select name="estimate">
             <option value="">-</option>
             <option value="1~2">1~2日で発送</option>
-            <option value="2~3">2~3で発送</option>
+            <option value="2~3">2~3日で発送</option>
             <option value="4~7">4~7日で発送</option>
         </select>
     </p>

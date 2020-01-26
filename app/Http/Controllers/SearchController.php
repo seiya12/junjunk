@@ -31,7 +31,8 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('price', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code']);
+                ->orderBy('created_at', 'desc')
+                ->orderBy('price', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } elseif ($sort === 'price-desc') {
@@ -46,7 +47,8 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('price', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code']);
+                ->orderBy('created_at', 'desc')
+                ->orderBy('price', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } elseif ($sort === 'created-asc') {
@@ -61,7 +63,7 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('created_at', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code']);
+                ->orderBy('created_at', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         } else {
@@ -76,7 +78,8 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->get(['product_code', 'name', 'price', 'sell_user_code']);
+                ->orderBy('created_at', 'desc')
+                ->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
         }

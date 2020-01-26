@@ -10,10 +10,11 @@ article img{
 }
 #not-found{
     text-align: center;
+    font-size: 2em;
 }
 
 article{
-  background-color: #e6e6e6;
+  background-color: #fff;
   padding-bottom: 3%;
 }
 .category_flex {
@@ -22,22 +23,48 @@ article{
   justify-content: space-around;
 }
 .category_item {
-  background-color: #fff;
+  background-color: #eee;
   margin-top: 3%;
-  width: 30%;
+  width: 32%;
   position: relative;
+  border: solid 5px #eee;
 }
 .category_item .height {
-  height: 2em;
+  line-height: 1.5em;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* white-space: nowrap; */
+  white-space: nowrap;
+  height: 24px;
 }
 .category_item .price {
-  background-color: #ff0;
+  background-color: #ff7f50;
+  border-radius: 50% 50% 50% 50%;
+  color: #fff;
   position: absolute;
-    top: 68%;
+    bottom: 27px;
     left: 0;
-  opacity: .75;
+  opacity: 0.9;
+  padding: 5% 5% 5% 5%;
 }
+.category_item .method {
+  background-color: #00bfff;
+  border-radius: 0 0 0 25%;
+  color: #fff;
+  position: absolute;
+    top: 0;
+    right: 0;
+  opacity: 0.9;
+  padding: 5% 5% 5% 5%;
+}
+.category_item .method2 {
+  background-color: #ff0040;
+  border-radius: 0 0 0 25%;
+  color: #fff;
+  position: absolute;
+    top: 0;
+    right: 0;
+  opacity: 0.9;
+  padding: 5% 5% 5% 5%;
+}
+
