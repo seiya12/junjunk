@@ -31,7 +31,6 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('created_at', 'desc')
                 ->orderBy('price', 'asc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
@@ -47,7 +46,6 @@ class SearchController extends Controller
                 }, function ($query) {
                     return $query;
                 })
-                ->orderBy('created_at', 'desc')
                 ->orderBy('price', 'desc')->get(['product_code', 'name', 'price', 'sell_user_code','sell_type']);
 
             return view('search', compact('products', 'keyword', 'sort', 'category', 'min_price', 'max_price'));
